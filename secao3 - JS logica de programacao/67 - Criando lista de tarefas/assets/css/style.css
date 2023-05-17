@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #2b4b5e;
+    --container: #fff;
+    --button: #4b7985;
+    --button-active: #33525a;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container {
+    max-width: 640px;
+    margin: auto;
+    background: var(--container);
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px 1px #2e2e2e;
+}
+
+form input, form label, form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+form input {
+    font-size: 24px;
+    height: 30px;
+    padding: 0 20px;
+}
+
+form button {
+    border: none;
+    background: var(--button);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    cursor: pointer;
+}
+
+form button:active {
+    background: var(--button-active);
+}
+
+.tasks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tasks li {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasks li button {
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #ff0000;
+    color: #fff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
