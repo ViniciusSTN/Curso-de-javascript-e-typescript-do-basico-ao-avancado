@@ -1,0 +1,16 @@
+reinicia automaticamente o servidor apos uma alteração no codigo
+
+para instalar
+npm i nodemon --save-dev
+
+para executar
+npx nodemon server.js
+
+--------------------------------------------
+
+ou então para facilitar:
+dentro de "scripts" em package.json colocar a chave:
+"start": "nodemon server.js"
+
+agora para inicializar:
+npm start
