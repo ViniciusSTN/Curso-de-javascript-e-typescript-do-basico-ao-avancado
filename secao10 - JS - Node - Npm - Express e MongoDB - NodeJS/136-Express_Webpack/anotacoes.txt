@@ -1,0 +1,2 @@
+// atribuir public ao express.static
+app.use(express.static(path.resolve(__dirname, 'public')));
