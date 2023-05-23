@@ -1,3 +1,9 @@
+RESUMO:
+instalar o dotenv
+instalar o mongoose
+criar um model
+
+// ----------------------------------------------------------------------
 npm i dotenv
 
 // para gerenciar senha do servidor
@@ -9,6 +15,9 @@ require('dotenv').config();
 // para usar a chave que conecta ao servidor no arquivo .env
 
 criar arquivo .env
-colocar no .gitignore
+colocar no .gitignore para que a chave não seja exibida
+
+o mongoose serve para garantir que os dados estejam na BD da forma que a gente quer, como se fosse uma validação desses dados
 
 
+OBS: normalmente não é o controller que vai criar e buscar esses dados e sim o model

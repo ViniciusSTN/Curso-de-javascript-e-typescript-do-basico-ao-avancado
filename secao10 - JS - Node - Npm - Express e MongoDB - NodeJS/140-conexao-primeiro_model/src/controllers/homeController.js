@@ -1,3 +1,25 @@
+// -----------------------------------------------------------
+const HomeModel = require('../models/HomeModel');
+
+// OBS: normalmente não é o controller que vai criar e buscar esses dados e sim o model
+
+// criar nova coleção no BD
+// retorna uma promise
+// normalmente não é usado dessa maneira
+HomeModel.create({
+    titulo: 'Um título de teste',
+    descricao: 'Uma descrição de teste'
+})
+    .then(dados => console.log(dados))
+    .catch(e => console.log(e));
+
+// buscar os dados
+HomeModel.find()
+    .then(dados => console.log(dados))
+    .catch(e => console.log(e));
+
+// -----------------------------------------------------------
+
 exports.homePage = (req, res, next) => {
     console.log('Respondendo o cliente');
     res.render('index');
