@@ -1,0 +1,11 @@
+MongoDB Atlas é um servidor não relacional orientado a documentos
+
+Codigo aberto
+multiplataformas
+criado em C++
+
+npm install mongodb
+
+mongodb+srv://ViniciusSTN:<password>@cluster0.atphc8c.mongodb.net/?retryWrites=true&w=majority
+
+password: Vinihsan01

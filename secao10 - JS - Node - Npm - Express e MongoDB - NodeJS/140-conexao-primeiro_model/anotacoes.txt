@@ -1,0 +1,14 @@
+npm i dotenv
+
+// para gerenciar senha do servidor
+// cria variáveis de ambiente
+
+npm i mongoose
+
+require('dotenv').config();
+// para usar a chave que conecta ao servidor no arquivo .env
+
+criar arquivo .env
+colocar no .gitignore
+
+
