@@ -1,0 +1,14 @@
+express helmet -> pratica de segurança para express
+
+Cross-site Request Forgery (CSRF) é um tipo de ataque de websites maliciosos
+
+
+instalar
+helmet
+csurf
+
+
+Resumo:
+
+Agora cada vez que pagina é gerada será criado um novo token que será usado para validar as informações e enviar para o BD (por questão de segurança), para evitar que ataques de sites consigam receber essa informção.
+A biblioteca irá criar e validar automaticamente o token
