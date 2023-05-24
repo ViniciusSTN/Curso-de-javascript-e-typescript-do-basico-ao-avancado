@@ -1,0 +1,30 @@
+<%- include('./includes/head'); %>
+
+<section class="container">
+
+  <h1>
+    <!-- as tags em ejs podem ser feitas de duas formas -->
+    <!-- a primeira forma escapa caracteres -->
+
+    <!-- <%= titulo %> -->
+    <!-- <%- titulo %> -->
+
+    <% if(typeof titulo !== 'undefined') { %>
+      <%- titulo %>
+    <% } else { %>
+      Titulo não enviado
+    <% } %>
+  </h1>
+
+  <% numeros.forEach(num => { %>
+    <%= num %> <br>
+  <% }); %>
+
+  <form action="/" method="post">
+    <label>Cliente</label>
+    <input type="text" name="cliente">
+    <button>Submit</button>
+  </form>
+</section>
+
+<%- include('./includes/footer'); %>

@@ -1,0 +1,7 @@
+olhar arquivos
+
+homeController
+middleware
+index ejs
+
+includes serve para atribuir a varias paginas html o mesmo conteudo, para que não fique muito repetitivo e verboso
