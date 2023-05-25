@@ -1,0 +1,13 @@
+app.use(express.json());
+
+padrão de projeto mvc -> models views e controllers
+
+
+
+route -> decide quem vai controlar cada rota
+
+controllers -> decidir o model que vai controlar a base de dados e o view
+
+model -> trabalhar com dados e BD
+
+view -> o que o usuário vai ver
