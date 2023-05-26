@@ -18,6 +18,26 @@ class Login {
     this.user = null;
   }
 
+  async login() {
+    this.validate();
+    if (this.errors.length > 0) return;
+    this.user = await LoginModel.findOne({ email: this.body.email }); // procurando um registro no BD com o email igual ao body.email   // retorna o usuario ou null
+
+    // caso não existir
+    if(!this.user) {
+      this.errors.push('Usuário não existe');
+      return;
+    }
+
+    // caso existir
+    // compara com o hash do BD
+    if(!bcryptjs.compareSync(this.body.password, this.user.password)) {
+      this.errors.push('Senha inválida');
+      this.user = null;
+      return;
+    }
+  }
+
   async register() {
     this.validate();
     if (this.errors.length > 0) return; // se tiver erro não vai enviar ao BD
@@ -29,20 +49,7 @@ class Login {
     const salt = bcryptjs.genSaltSync();  // evitar que duas senhas idênticas produzam hashes idênticos
     this.body.password = bcryptjs.hashSync(this.body.password, salt); // criando hash para senha
 
-    try {
-      this.user = await LoginModel.create(this.body); // criar usuario no BD
-    } 
-    catch(e) {
-      console.log(e);
-    }
-    
-  }
-
-  async userExists() {
-    // retorna o usuario ou null
-    const user = await LoginModel.findOne({ email: this.body.email }); // procurando um registro no BD com o email igual ao body.email
-
-    if (user) this.errors.push('Usuário já registrado');
+    this.user = await LoginModel.create(this.body); // criar usuario no BD
   }
 
   validate() {
@@ -64,6 +71,12 @@ class Login {
       email: this.body.email,
       password: this.body.password 
     };
+  }
+
+  async userExists() {
+    // retorna o usuario ou null
+    this.user = await LoginModel.findOne({ email: this.body.email }); // procurando um registro no BD com o email igual ao body.email
+    if (this.user) this.errors.push('Usuário já registrado');
   }
 
 }
