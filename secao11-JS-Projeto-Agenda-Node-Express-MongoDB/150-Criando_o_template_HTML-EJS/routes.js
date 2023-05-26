@@ -8,7 +8,6 @@ route.get('/', homeController.index);
 
 // rotas de login
 route.get('/login/index', loginController.index);  // pode omitir o index
-
-
+route.post('/login/register', loginController.register);
 
 module.exports = route;
