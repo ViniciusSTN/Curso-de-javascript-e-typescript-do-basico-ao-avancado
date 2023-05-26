@@ -1,0 +1,7 @@
+html
+
+table.table-container       // cria uma table com classe table-container
+
+table>tr.linha1>td          // cria uma table com tr dentro com classe linha1 com uma td dentro
+
+tr>td*4                     // cria uma tr com 4 td dentro
