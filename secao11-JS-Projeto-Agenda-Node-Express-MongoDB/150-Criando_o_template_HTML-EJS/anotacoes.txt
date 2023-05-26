@@ -2,3 +2,4 @@ CRUD
 
 instalar:
 validator       // para não precisar usar regex
+bcryptjs        // hash de senha - criptografia

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');   // valida formularios
+const bcryptjs = require('bcryptjs');       // hash de senha
 
 const LoginSchema = new mongoose.Schema({
   email: { type: String, required: true },
@@ -21,6 +22,13 @@ class Login {
     this.validate();
     if (this.errors.length > 0) return; // se tiver erro não vai enviar ao BD
 
+    await this.userExists();
+
+    if (this.errors.length > 0) return; // checar novamente
+
+    const salt = bcryptjs.genSaltSync();  // evitar que duas senhas idênticas produzam hashes idênticos
+    this.body.password = bcryptjs.hashSync(this.body.password, salt); // criando hash para senha
+
     try {
       this.user = await LoginModel.create(this.body); // criar usuario no BD
     } 
@@ -28,6 +36,13 @@ class Login {
       console.log(e);
     }
     
+  }
+
+  async userExists() {
+    // retorna o usuario ou null
+    const user = await LoginModel.findOne({ email: this.body.email }); // procurando um registro no BD com o email igual ao body.email
+
+    if (user) this.errors.push('Usuário já registrado');
   }
 
   validate() {
