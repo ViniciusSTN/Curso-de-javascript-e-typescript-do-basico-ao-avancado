@@ -52,4 +52,15 @@ Contact.prototype.cleanUp = function() {
   };
 }
 
+Contact.prototype.edit = async function(id) {
+  if (typeof id !== 'string') return;
+
+  this.validate();
+  if(this.errors.length > 0) return;
+
+  // update na BD
+  // atualiza na BD e retorna um novo objeto com dado atualizados (por isso o {new: true})
+  this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new: true}); 
+}
+
 module.exports = Contact;
