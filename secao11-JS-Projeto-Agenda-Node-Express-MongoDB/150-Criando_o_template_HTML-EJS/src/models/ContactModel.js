@@ -17,12 +17,6 @@ function Contact(body) {
   this.contact = null;
 }
 
-Contact.findId = async function(id) {
-  if (typeof id !== 'string') return;
-  const user = await ContactModel.findById(id);  // retorna um usuario ou null
-  return user;
-}
-
 Contact.prototype.register = async function() {
   this.validate();
 
@@ -61,6 +55,28 @@ Contact.prototype.edit = async function(id) {
   // update na BD
   // atualiza na BD e retorna um novo objeto com dado atualizados (por isso o {new: true})
   this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new: true}); 
+}
+
+// método estático (não acessam this)
+Contact.findId = async function(id) {
+  if (typeof id !== 'string') return;
+  const contact = await ContactModel.findById(id);  // retorna um usuario ou null
+  return contact;
+}
+
+Contact.findContacts = async function() {
+  // é possivel enviar um objeto com 'filtros' no .find()
+  const contacts = await ContactModel.find()
+    .sort({date: -1}) // ordem decrescente de criação (obs: 1 é crescente)
+  return contacts;
+}
+
+Contact.delete = async function(id) {
+  if (typeof id !== 'string') return;
+
+  // findOneAndDelete() precisa receber um objeto com 'filtro'
+  const contact = await ContactModel.findOneAndDelete({_id: id}); // deletar do BD, retorna null ou o contato
+  return contact;
 }
 
 module.exports = Contact;
