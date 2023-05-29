@@ -1,0 +1,27 @@
+no terminal
+ssh-keygen -f ~/.ssh/cursojs -t rsa -b 4096
+enter
+enter
+a senha será gerada
+ls ~/.ssh/curso*        para ver os arquivos das chaves (a chave .pub será usada)
+cat CAMINNHO DA CHAVE .PUB
+copiar o texto inteiro (ELE É A CHAVE SSH)
+
+
+no google cloud
+ir em compute engine -> metadados -> chaves SSH
+colar
+copiar ip do servidor
+
+
+no terminal
+ssh nomeUsuario@ipServidor
+yes (caso aparecer mensagem de confirmação)
+
+nesse momento ja estamos dentro do servidor
+para atualizar: 
+sudo apt update
+sudo apt upgrade
+y (caso precisar)
+
+para sair: exit
