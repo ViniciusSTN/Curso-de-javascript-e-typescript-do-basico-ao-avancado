@@ -1,0 +1,3 @@
+windows:    abrir pasta do projeto agenda -> botão direito -> Git BASH here
+
+linux: botão direito na pasta -> abrir no terminal
