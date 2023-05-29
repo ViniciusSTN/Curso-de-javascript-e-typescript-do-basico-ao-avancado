@@ -1,0 +1,26 @@
+no git bash
+ssh-keygen  (irá aparecer o caminho do arquivo da chave e o nome desse arquivo) -> por padrão id_rsa
+enter
+enter
+enter (pede uma senha não obrigatória)
+eval $(ssh-agent)                                       // fazer sempre que reinicar o pc
+ssh-add ~/.ssh/nomeDoArquivo (id_rsa por padrão)        // fazer sempre que reinicar o pc
+start ~/.ssh    (abre a pasta do ssh) -> abrir pasta pub no bloco de notas e copiar a chave
+
+
+no google cloud
+compute engine  -> metadados -> chaves ssh
+adicionar chave
+copiar id do servidor
+
+
+np git bash
+ssh ipDoServidor    (conectar no servidor)
+yes
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+y
+sudo reboot (reinicia o servidor)
+exit (sair)
+
