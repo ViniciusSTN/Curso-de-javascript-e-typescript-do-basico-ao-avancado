@@ -1,0 +1,1 @@
+Para economizar tempo de processamento e memória, é bom fazer validações simples no front antes de enviar para o back
