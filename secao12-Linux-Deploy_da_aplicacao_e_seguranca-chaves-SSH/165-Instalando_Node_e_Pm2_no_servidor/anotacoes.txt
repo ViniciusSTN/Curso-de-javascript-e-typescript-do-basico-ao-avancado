@@ -1,0 +1,31 @@
+no servidor:
+sudo apt install curl -y
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+sudo apt install nodejs -y
+cd agenda/
+npm i
+OBS: É NECESSÁRIO DESATIVAR IP PUBLICO NA BD E ADICIONAR O IP DO SERVIDOR NO BD
+
+sudo npm i -g pm2
+pm2 start /home/nomeUsuario/agenda/server.js
+pm2 list
+nano server.js      (usando a porta 3000 nesse projeto, só é possivel uma porta por projeto)
+nano .env       (para criar o arquivo .env) -> copiar do arquivo original, colar, ctrl+o para salvar, enter, ctrl+x para sair
+cd ..
+pm2 start agenda       (para iniciar o projeto agenda)
+// --------------------------------------------------------------------------------------------
+ou
+pm2 start server       (caso o de cima não funcionar)
+// --------------------------------------------------------------------------------------------
+cd agenda/
+pm2 startup       -> copiar script que aparecer
+colar e executar
+curl http://localhost:3001          caso der erro mudar a porta com: ( nano server.js ) 
+se aparecer o html é porque deu certo
+
+
+comandos importantes
+pm2 start agenda        (para iniciar o projeto agenda)
+pm2 stop agenda         (para parar o projeto agenda)
+pm2 save
+pm2 uninstartup systemd
