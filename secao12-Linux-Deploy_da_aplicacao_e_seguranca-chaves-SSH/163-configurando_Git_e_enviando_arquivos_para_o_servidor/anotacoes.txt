@@ -1,3 +1,24 @@
-windows:    abrir pasta do projeto agenda -> botão direito -> Git BASH here
+como abrir pasta especifica no terminal
 
+windows:    abrir pasta do projeto agenda -> botão direito -> Git BASH here
 linux: botão direito na pasta -> abrir no terminal
+
+// --------------------
+
+para criar repositorio no servidor
+
+primeiro criar repositorio do projeto e fazer commit usando git
+
+no servidor: (criar duas pastas e iniciar um repositorio em uma delas)
+mkdir repo-agenda
+mkdir agenda
+cd repo-agenda/     (para entrar na pasta)
+git init --bare
+cd ..               (para voltar um nivel nas pastas)
+cd agenda
+git init
+git remote add agenda /home/nomeUsuario/repo-agenda/         (caso não souber o nome da pasta com nome do usuario basta dar tab depois de escrever /home/)
+
+no terminal da pasta (meu pc):
+git remote add agenda nomeUsuario@ipServidor:repo-agenda
+git push agenda master
