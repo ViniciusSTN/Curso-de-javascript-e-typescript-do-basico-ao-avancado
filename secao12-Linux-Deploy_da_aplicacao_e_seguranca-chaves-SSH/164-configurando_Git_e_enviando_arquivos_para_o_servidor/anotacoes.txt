@@ -19,6 +19,12 @@ cd agenda
 git init
 git remote add agenda /home/nomeUsuario/repo-agenda/         (caso não souber o nome da pasta com nome do usuario basta dar tab depois de escrever /home/)
 
+
 no terminal da pasta (meu pc):
 git remote add agenda nomeUsuario@ipServidor:repo-agenda
 git push agenda master
+
+
+no servidor:
+cd agenda/
+git pull agenda master
