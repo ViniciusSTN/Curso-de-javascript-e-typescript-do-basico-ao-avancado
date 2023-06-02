@@ -1,3 +1,35 @@
 seção: separar o back do front
 
+instalar docker
 
+senha root MariaDB = jiJHF$@#PF1283
+
+// ------------------------
+
+para acessar o docker por fora do servidor:
+
+no site do google cloud:
+3 pontos da instancia -> ver detalhes de rede -> firewall -> criar regra de firewall
+
+alterar nome
+
+Destino: Todas as instâncias na rede
+
+intervaloa IPv4: 0.0.0.0/0  (pode colocar um ip fixo caso tiver)
+
+tcp: 3306
+
+
+agora a porta foi libeada para acessar o servidor no google cloud
+
+// ------------------------
+
+### INSTALAR O MYSQL WORKBENCH E INSOMNIA
+
+# LINUX (UBUNTU)
+sudo apt install mysql-workbench
+sudo snap install insomnia
+
+# FAÇA O DOWNLOAD PARA WINDOWS
+https://dev.mysql.com/downloads/workbench/
+https://insomnia.rest/download/
