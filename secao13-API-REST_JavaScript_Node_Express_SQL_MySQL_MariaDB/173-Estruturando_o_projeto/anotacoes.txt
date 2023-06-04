@@ -1,0 +1,16 @@
+models, controllers, database, middlewares, routes
+
+npm i express
+
+em .eslintrc.js -> rules:
+'class-methods-use-this': 'off',
+
+// -----------------------
+
+a ideia é usar o insomnia ao invés do browser
+
+criar collection no insomnia
+configurar o manage environments e colocar "base_url": "http://localhost:3002"
+
+criar pasta Home e colocar as requisições
+
