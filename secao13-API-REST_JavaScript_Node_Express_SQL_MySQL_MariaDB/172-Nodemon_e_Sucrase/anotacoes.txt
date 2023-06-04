@@ -1,0 +1,21 @@
+npm i nodemon sucrase --save-dev
+
+criar um arquivo na raiz:
+nodemon.json
+
+criar objeto e adicionar: 
+
+"execMap": {
+    "js": "node -r sucrase/register"
+}
+
+criar arquivo server.js na raiz
+
+// -------------------------------------------------
+
+em package.json:
+em scripts:
+"dev": "nodemon server.js"
+
+para rodar: npm run dev
+
