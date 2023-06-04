@@ -2,7 +2,8 @@ seção: separar o back do front
 
 instalar docker
 
-senha root MariaDB = jiJHF$@#PF1283
+senha root MariaDB 
+hjahdjfhj1419
 
 // ------------------------
 
