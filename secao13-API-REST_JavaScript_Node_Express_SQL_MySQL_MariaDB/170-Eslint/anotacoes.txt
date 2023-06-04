@@ -1,0 +1,43 @@
+npm init -y
+
+// eslint
+// forçar que digite um código melhor
+// autocorreção
+
+npx eslint --init
+y
+y
+terceira opcao -> enter
+primeiro opcao -> enter
+terceira opcao -> enter
+nao -> enter
+desmarcar o browser com espaço e selecionar node com espaço -> enter
+primeira opcao
+airbnb
+javascript
+yes
+npm
+
+// ---------------------------------------------------
+
+instalar extenção eslint no vscode
+
+ir no settings.json no vscode e adicionar linha:
+obs: true irá corrigir automaticamente o codigo
+
+"editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll": true
+},
+
+ctrl + s -> ao salvar o codigo ele corrige os problemas automaticamente
+
+ao passar o mouse em cima do 'erro', é possivel ver a regra que está sendo aplicada
+
+// ---------------------------------------------------
+
+ir no arquivo .eslintrc.js
+
+em rules:
+'no-console': 'off',
+
