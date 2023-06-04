@@ -1,0 +1,8 @@
+baixar extenção editorconfig
+
+criar pasta do projeto API_Rest
+
+botão direito na raiz do projeto -> Generate .editorconfig
+
+ler comentários no arquivo criado
+
