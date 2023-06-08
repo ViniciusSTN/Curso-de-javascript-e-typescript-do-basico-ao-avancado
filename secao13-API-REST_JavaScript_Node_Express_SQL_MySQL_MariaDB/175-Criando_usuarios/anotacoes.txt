@@ -1,0 +1,33 @@
+// criar mais uma migrate para usuarios
+npx sequelize migration:generate --name users
+
+npx sequelize db:migrate
+
+// ------------------------------------
+
+// caso errar algo e precisar desfazer a ultima modificação
+npx sequelize db:migrate:undo
+
+// ------------------------------------
+
+criar model User
+
+npm i bcryptjs
+
+
+// =================
+
+IMPORTANTE 
+
+/*
+Padrão usado pela comunidade
+
+index -> Lista todos os usuarios -> GET
+store ou create -> cria um novo usuário -> POST
+delete -> apaga um usuário -> DELETE
+show -> mostra um usuário -> GET
+update -> atualiza um usuário -> PATCH OU PUT
+*/
+
+// =================
+
