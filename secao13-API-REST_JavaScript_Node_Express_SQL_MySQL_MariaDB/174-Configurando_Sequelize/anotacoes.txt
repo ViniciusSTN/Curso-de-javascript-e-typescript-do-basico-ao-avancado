@@ -1,0 +1,43 @@
+npm i dotenv
+npm i sequelize
+npm i sequelize-cli
+npm i mariadb
+
+criar arquivo .env
+
+// ------------------------------------------------
+criar arquivo .sequelizerc
+
+dentro do arquivo: ctrl + shift + p -> change lenguage mode -> javascript
+
+// ------------------------------------------------
+criar arquivo database.js dentro de config
+// ------------------------------------------------
+
+criar BD no mySql-Workbench
+criar schema escola: utf8mb4 e utf8mb4_general_ci
+
+// ------------------------------------------------
+
+executar no terminal: 
+// npx sequelize migration:create --name=alunos
+
+// aparentemente só o abaixo funciona
+npx sequelize migration:generate --name alunos
+
+isso irá criar um arquivo na pasta database/migrations
+nele será configurado como será a tabela do BD
+
+depois de configurado, executar:
+
+npx sequelize db:migrate
+
+isso irá criar a tabela no BD
+
+// ------------------------------------------------
+
+Criar um model com nome Aluno.js e configurar
+
+Criar um arquivo index.js na pasta database
+
+
