@@ -46,7 +46,10 @@ export default class User extends Model {
 
     // usa o validator
     this.addHook('beforeSave', async (user) => {
-      user.password_hash = await bcryptjs.hash(user.password, 8);
+      if (user.password) {
+        // somente irá fazer o hash de senha se for enviado o password, para evitar erro no update
+        user.password_hash = await bcryptjs.hash(user.password, 8);
+      }
     });
 
     return this;
