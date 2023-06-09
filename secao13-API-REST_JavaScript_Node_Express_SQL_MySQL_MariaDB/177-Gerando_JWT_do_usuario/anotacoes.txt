@@ -1,0 +1,8 @@
+Logar o usuáriio usando json web token ao invés de sessions
+
+token no .env
+
+npm i jsonwebtoken
+
+criar arquivo TokenContoller e tokenRoutes
+
