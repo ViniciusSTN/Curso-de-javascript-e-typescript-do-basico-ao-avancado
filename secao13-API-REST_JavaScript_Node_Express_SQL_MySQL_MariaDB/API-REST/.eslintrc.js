@@ -15,5 +15,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'import/no-extraneous-dependencies': 'off',
     'max-len': 'off',
+    'quotes': 'off',
+    'quote-props': 'off',
   },
 };

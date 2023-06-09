@@ -21,7 +21,7 @@ class TokenController {
       });
     }
 
-    // validar email
+    // validar senha
     // método da classe User de /models/
     if (!(await user.passwordIsValid(password))) {
       return res.status(401).json({

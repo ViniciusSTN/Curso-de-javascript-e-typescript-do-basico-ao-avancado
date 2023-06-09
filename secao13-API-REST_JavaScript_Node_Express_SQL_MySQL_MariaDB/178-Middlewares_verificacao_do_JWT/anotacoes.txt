@@ -1,0 +1,8 @@
+criar arquivo loginRequired em middlewares
+
+agora ao logar, um token é gerado para o usuário e as rotas que ele acessar irão validar esse token, para saber se o usuário está logado e se o token existe. OBS: apenas rotas que possuem o middleware loginRequired
+
+através do token é possível saber qual o id e o email do usuário que está acessando, pois na criação do token foi atrelado o id e email (é possível alterar)
+
+
+
