@@ -1,0 +1,4 @@
+verificação se o email corresponde, pois se o usuário trocar de email, será necessário logar novamente para alterar o token, evitando falhas de segurança
+
+olhar arquivo loginRequired.js em middlewares
+

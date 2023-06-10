@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import User from '../models/User';
 
-export default (req, res, next) => {
+export default async (req, res, next) => {
   const { authorization } = req.headers; // chave authorization possui o token
 
   // analisa se foi enviado um token de verificação
@@ -17,6 +18,22 @@ export default (req, res, next) => {
     // verifica se o token é válido e retorna os dados do usuário atrelados ao token
     const dados = jwt.verify(token, process.env.TOKEN_SECRET);
     const { id, email } = dados;
+
+    // essa verificação é importante pois se o usuário trocar de email, será necessário logar novamente para alterar o token, evitando falhas de segurança
+    // portanto toda requisição que passe por esse middleware precisa checar na BD se o email e id corresponde, semelhante ao que as sessions fazem. Isso gera discuções.
+    const user = await User.findOne({
+      where: {
+        id,
+        email,
+      },
+    });
+
+    if (!user) {
+      return res.status(401).json({
+        errors: ['Usuário inválido'],
+      });
+    }
+
     req.userId = id; // o id e o email pode ser acessados em rotas para saber qual usuario está logado
     req.userEmail = email;
     return next();

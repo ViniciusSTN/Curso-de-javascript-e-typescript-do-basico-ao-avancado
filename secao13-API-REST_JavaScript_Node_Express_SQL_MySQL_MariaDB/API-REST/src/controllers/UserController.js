@@ -1,10 +1,12 @@
 import User from '../models/User';
 
 class UserController {
+  // store
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      return res.json(novoUser);
+      const { id, nome, email } = novoUser;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -15,7 +17,8 @@ class UserController {
   // index
   async index(req, res) {
     try {
-      const users = await User.findAll(); // busca todos os usuários
+      // const users = await User.findAll(); // busca todos os usuários
+      const users = await User.findAll({ attributes: ['id', 'nome', 'email'] }); // busca somente esses tributos listados
       // console.log('User ID', req.userId);
       // console.log('User Email', req.userEmail);
       return res.json(users); // retorna os usuários
@@ -27,9 +30,12 @@ class UserController {
   // show
   async show(req, res) {
     try {
-      const { id } = req.params;
-      const user = await User.findByPk(id); // find by primary key
-      return res.json(user); // retorna o usuário informado
+      const user = await User.findByPk(req.params.id); // find by primary key
+
+      const { id, nome, email } = user;
+
+      // return res.json(user); // retorna o usuário informado
+      return res.json({ id, nome, email }); // retorna apenas alguns atributos do usuário informado
     } catch (e) {
       return res.json(null);
     }
@@ -38,14 +44,7 @@ class UserController {
   // update
   async update(req, res) {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json({
-          errors: ['ID não enviado'],
-        });
-      }
-
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
@@ -54,7 +53,8 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body); // atualiza os dados
-      return res.json(novosDados);
+      const { id, nome, email } = novosDados;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -65,14 +65,7 @@ class UserController {
   // delete
   async delete(req, res) {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json({
-          errors: ['ID não enviado'],
-        });
-      }
-
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
@@ -81,7 +74,7 @@ class UserController {
       }
 
       await user.destroy(); // apaga o usuário
-      return res.json(user);
+      return res.json('Usuário deletado');
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
