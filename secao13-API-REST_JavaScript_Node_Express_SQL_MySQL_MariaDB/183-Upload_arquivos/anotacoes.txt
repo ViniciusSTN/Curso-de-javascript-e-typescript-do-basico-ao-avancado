@@ -6,5 +6,5 @@ criar e configurar rotas da foto
 
 criar arquivo multerConfig.js na pasta /src/config/
 
-olhar rota e controller foto
+olhar arquivos config, rota e controller da foto
 
