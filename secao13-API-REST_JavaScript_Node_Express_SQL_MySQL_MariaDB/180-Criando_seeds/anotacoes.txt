@@ -1,0 +1,11 @@
+seeds são para inserir coisas no BD
+
+cria um arquivo na pasta /database/seeds/
+npx sequelize seed:generate --name criar-usuarios
+
+depois de adicionar os usuarios no codigo
+
+executar:
+npx sequelize db:seed:all
+
+
