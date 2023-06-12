@@ -1,0 +1,2 @@
+Alteração no model de alunos para fazer validação
+Feito o crud com bearer token 

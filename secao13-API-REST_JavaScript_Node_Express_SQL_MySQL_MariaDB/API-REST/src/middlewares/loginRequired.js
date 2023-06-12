@@ -20,7 +20,7 @@ export default async (req, res, next) => {
     const { id, email } = dados;
 
     // essa verificação é importante pois se o usuário trocar de email, será necessário logar novamente para alterar o token, evitando falhas de segurança
-    // portanto toda requisição que passe por esse middleware precisa checar na BD se o email e id corresponde, semelhante ao que as sessions fazem. Isso gera discuções.
+    // portanto toda requisição que passe por esse middleware precisa checar no BD se o email e id correspondem, semelhante ao que as sessions fazem. Isso gera discuções.
     const user = await User.findOne({
       where: {
         id,
