@@ -1,0 +1,22 @@
+rota de alunos criada
+
+modificação: deixar email como único, para isso criar uma migration
+npx sequelize migration:create --name=mudar-email-aluno-unique 
+
+dentro do arquivo:
+
+queryInterface.changeColumn(
+  'alunos',
+  'email',
+  {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+  },
+);
+
+para aplicar a migração:
+npx sequelize db:migrate
+
+vai dar erro pois já existe alunos com mesmo email, alterar no BD e aplicar
+
