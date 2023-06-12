@@ -1,0 +1,10 @@
+por padrão o express não suporta upload de arquivos
+ 
+npm i multer
+
+criar e configurar rotas da foto
+
+criar arquivo multerConfig.js na pasta /src/config/
+
+olhar rota e controller foto
+
