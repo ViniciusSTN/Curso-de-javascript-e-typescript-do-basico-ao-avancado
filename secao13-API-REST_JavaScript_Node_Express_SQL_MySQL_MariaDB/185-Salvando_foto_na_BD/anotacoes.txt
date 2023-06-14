@@ -1,0 +1,40 @@
+criar loginRequired na rota de fotos
+
+criar migration
+npx sequelize migration:create --name=criar-tabela-de-foto-do-aluno
+
+após configurado a migrate:
+npx sequelize db:migrate
+
+criar model de foto
+dentro do model é preciso associar a tabela fotos com alunos
+
+para referenciar o model (dentro do model Foto)
+static associate(models) {
+  this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });
+}
+
+OU ENTÃO (dentro do model Aluno):
+// hasOne -> tem um
+// hasMany -> tem muitos
+static associate(models) {
+  this.hasOne(models.Foto, { foreignKey: 'aluno_id' });
+}
+
+é preciso importar o model Foto dentro do index da pasta /src/database/
+e executar os métodos dele
+
+precisa importar o model Foto dentro de fotoController
+
+========================================================================
+ON UPDATE CASCADE: Se a primary key do registro pai for alterada, isso será refletido no resgistro filho
+
+RESTRICT: qualquer tentativa de apagar ou atualizar o registro pai vai falhar e lançar um erro
+
+NO ACTION: O mysql não vai realizar nenhuma ação, mas não poderá apagar ou atualizar a primary key do registro pai, nem poderá alterar a foreign key do registro filho caso a primary key do registro pai ainda não tiver sido atualizada
+
+SET NULL: Caso apagar ou atualizar a primary key do registro pai, a foreign key do registro filho será configurada para NULL.
+========================================================================
+
+é possivel ver as configurações da tabela em alter table ao clicar com o botão direito na tebela no MySQL Workbench
+

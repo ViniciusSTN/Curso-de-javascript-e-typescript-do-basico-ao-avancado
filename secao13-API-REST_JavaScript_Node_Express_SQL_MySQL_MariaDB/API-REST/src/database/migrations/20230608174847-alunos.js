@@ -3,42 +3,42 @@ module.exports = {
     return queryInterface.createTable('alunos', {
       id: {
         type: Sequelize.INTEGER,
-        allowNUll: false,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
       nome: {
         type: Sequelize.STRING,
-        allowNUll: false,
+        allowNull: false,
       },
       sobrenome: {
         type: Sequelize.STRING,
-        allowNUll: false,
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
-        allowNUll: false,
+        allowNull: false,
       },
       idade: {
         type: Sequelize.INTEGER,
-        allowNUll: false,
+        allowNull: false,
       },
       peso: {
         type: Sequelize.FLOAT,
-        allowNUll: false,
+        allowNull: false,
       },
       altura: {
         type: Sequelize.FLOAT,
-        allowNUll: false,
+        allowNull: false,
       },
 
       created_at: {
         type: Sequelize.DATE,
-        allowNUll: false,
+        allowNull: false,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNUll: false,
+        allowNull: false,
       },
     });
   },
