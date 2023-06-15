@@ -19,6 +19,7 @@ class UserController {
     try {
       // const users = await User.findAll(); // busca todos os usuários
       const users = await User.findAll({ attributes: ['id', 'nome', 'email'] }); // busca somente esses tributos listados
+      console.log(users);
       // console.log('User ID', req.userId);
       // console.log('User Email', req.userEmail);
       return res.json(users); // retorna os usuários

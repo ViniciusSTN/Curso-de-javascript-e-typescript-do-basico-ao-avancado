@@ -1,0 +1,13 @@
+campo virtual para url das fotos
+
+models -> Foto
+
+criar arquivo appConfig.js na pasta /src/config/
+isso serve para caso queira que a url altere, basta modificar no arquivo config
+
+os uploads agora vão para a pasta /uploads/imagens/
+
+usar o método static do express e atribuir à pasta uploads
+
+agora é possível abrir a imagem através do link
+

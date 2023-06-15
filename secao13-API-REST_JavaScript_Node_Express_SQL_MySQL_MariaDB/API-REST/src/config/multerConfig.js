@@ -16,7 +16,7 @@ export default {
   storage: multer.diskStorage({
     destination: (req, file, callBack) => {
       // o primeiro parâmetro é um erro
-      callBack(null, resolve(__dirname, '..', '..', 'uploads'));
+      callBack(null, resolve(__dirname, '..', '..', 'uploads', 'images'));
     },
     filename: (req, file, callBack) => {
       // alterar o nome do arquivo para a hora atual em ms
