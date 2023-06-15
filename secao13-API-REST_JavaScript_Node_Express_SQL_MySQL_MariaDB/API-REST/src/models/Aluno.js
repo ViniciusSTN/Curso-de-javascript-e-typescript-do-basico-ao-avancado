@@ -67,4 +67,11 @@ export default class Aluno extends Model {
     });
     return this;
   }
+
+  // para dizer que essa tabela contem a tabela de Fotos
+  // hasOne (tem um)
+  // hasMany (tem muitos) -> retorna um array
+  static associate(models) {
+    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
+  }
 }

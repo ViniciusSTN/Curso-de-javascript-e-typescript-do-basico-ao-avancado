@@ -29,13 +29,13 @@ export default class Foto extends Model {
   }
 
   // para dizer que essa tabela pertence à tabela de Aluno
-  static associate(models) {
-    this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });
-  }
+  // static associate(models) {
+  //   this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });
+  // }
 
   // OU ENTÃO (dentro do model Aluno):
-  // hasOne -> tem um
-  // hasMany -> tem muitos
+  // hasOne (tem um)
+  // hasMany (tem muitos) -> retorna um array
   // static associate(models) {
   //   this.hasOne(models.Foto, { foreignKey: 'aluno_id' });
   // }

@@ -1,0 +1,3 @@
+exibindo alunos jutamente com suas respectivas fotos e ordenando em ordem decrescente -> no AlunoController
+
+

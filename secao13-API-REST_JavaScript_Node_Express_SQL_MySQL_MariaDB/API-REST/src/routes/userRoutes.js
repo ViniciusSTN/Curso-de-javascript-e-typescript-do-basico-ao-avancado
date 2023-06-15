@@ -8,7 +8,8 @@ const router = new Router();
 // router.get('/', loginRequired, userController.index);
 // router.get('/:id', userController.show);
 
-router.post('/', userController.store);
+// a rota de post de novos usuários não deve ter loginRequired
+router.post('/', loginRequired, userController.store);
 router.put('/', loginRequired, userController.update);
 router.delete('/', loginRequired, userController.delete);
 
