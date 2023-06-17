@@ -1,0 +1,137 @@
+criar a build do projeto -> mandar para a produção
+portanto não será mais feito o registro do sucrase e sim fazer o sucrase converter o arquivo em um formato que o node reconheça o import e export (parecido com babel)
+
+no arquivo packeage.json:
+em script: "build": "sucrase ./src -d ./dist --transforms imports"
+
+O sucrase vai fazer a transpilação do conteúdo da pasta /src/ para a pasta /dist que é a distribuição
+(obs: isso está na documentação do sucrase github)
+
+em script: "start": "node dist/server.js"
+(Obs: é preciso mover os arquivos app.js e server.js para /src/)
+
+no terminal:
+npm run build
+(será criado a pasta /dist/)
+
+npm start
+
+git init
+git status
+git add .
+git commit -m "adicionando-arquivos"
+
+---------------------------------------
+abrir novo terminal
+acessar o servidor
+
+dentro do servidor:
+mkdir api
+mkdir repo-api
+
+cd repo-api
+git init --bare
+cd ..
+
+cd api
+git init
+git config user.name 'ViniciusSTN'
+git config user.email 'vinicius.stn@gmail.com'
+git commit -am "initial"
+
+git remote add origin /home/vinicius/repo-api
+---------------------------------------
+
+no terminal do meu computador:
+git remote add origin 34.151.252.12:repo-api
+git push origin master
+---------------------------------------
+
+no terminal do servidor:
+git pull origin master
+ls -la
+mkdir uploads (pois a pasta uploads não enviou pois estava vazia)
+cd uploads
+mkdir images
+
+nano .env
+copia e cola os dados do .env, trocando para DATABASE_HOST=localhost
+
+npm i
+
+npm start (para testar)
+
+pm2 start /home/vinicius/api/dist/server.js --name=api
+pm2 ls
+
+curl http://localhost:3002
+(Se apa
+lsrecer 'index' é porque está funcionando)
+
+cd /etc/nginx/sites-enabled/
+sudo cp eunaotenhodominio api-rest (copiar arquivo e criar novo)
+
+sudo nano api-rest
+
+=====================================================================
+FAZER ALTERAÇÕES LISTADAS NOS PRINTS DA PASTA REFERENTE A AULA 188
+listen 81;
+listen [::]:81;
+proxy_pass http://localhost:3002;
+error_log   /var/log/nginx/34.151.252.12-errorAPIRest.log;
+ctrl + o -> enter -> ctrl + x
+=====================================================================
+
+sudo systemctl stop nginx
+
+AGORA É PRECISO GERAR O SERTIFICADO SSL CASO TIVER UM DOMÍNIO PARA CONFIGURAR COMO HTTPS
+
+para quem não tem domínio basta executar:
+sudo systemctl start nginx
+
+agora já é possivel acessar as rotas usando:
+http://34.151.252.12:81/alunos/		por exemplo
+
+----------------------------------------
+
+duplicar ambiente de desenvolvimento no insomnia
+escola (dev) e  escola (prod)
+
+alterar a base url de escola (prod) para o ip do site, nesse caso http://34.151.252.12:81
+
+----------------------------------------
+não aceita imagens muito grandes, para alterar:
+
+no terminal do servidor:
+sudo nano /etc/nginx/nginx.conf
+dentro de http: client_max_body_size 10M;
+salva e sai
+
+sudo systemctl restart nginx
+----------------------------------------
+
+ainda não é possivel acessar o link das imagens enviadas, pois o caminho está incorreto
+
+é preciso fazer as alterações no código, depois subir usando git
+
+alteração:
+this.app.use(express.static(resolve('/images/', __dirname, '..', 'uploads', 'images')));
+-----------------------------------------
+
+PRIMEIRO TESTAR USANDO ESCOLA (DEV) no insomnia
+caso funcionar, subir alterações para o servidor usando git e testar usando Escola (prod)
+
+apos testado:
+(OBS: SEMPRE QUE FAZER MODIFICAÇÃO, SEGUIR ESSAS ETAPAS)
+npm run build
+git add .
+git commit -m "editado"
+git push origin master
+
+no terminal do servidor:
+cd api
+git pull origin master
+pm2 restart api
+
+agora basta testar no insomnia na Escola (prod)
+
