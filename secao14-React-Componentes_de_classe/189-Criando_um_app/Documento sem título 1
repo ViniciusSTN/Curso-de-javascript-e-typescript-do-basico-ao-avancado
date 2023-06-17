@@ -1,0 +1,5 @@
+npx create-react-app (nome da pasta para criar)
+ou
+npx create-react-app . (cria na pasta atual)
+
+
