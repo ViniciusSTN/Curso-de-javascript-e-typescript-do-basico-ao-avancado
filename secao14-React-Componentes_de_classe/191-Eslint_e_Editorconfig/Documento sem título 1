@@ -1,0 +1,10 @@
+Editor config: basta ter a extensão no vscode e clicar com o botão direito na raiz do projeto, clicar para gerar o arquivo editorconfig
+
+npm i eslint babel-eslint -D
+
+instalar extensão eslint no vscode
+
+npx eslint --init
+
+OBS: NAO VOU USAR NESSE PROJETO PQ ODEIO ESLINT :)
+
