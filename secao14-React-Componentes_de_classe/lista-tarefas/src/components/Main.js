@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { FaPlus } from 'react-icons/fa';
+
 import './Main.css';
 
 export default class Main extends Component {
@@ -16,30 +18,24 @@ export default class Main extends Component {
   }
 
   render() {
+    const {novaTarefa} = this.state;
+
     return (
       // className refere-se a class do html
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form action="#">
-          <input onChange={this.handleChange} type="text" />
-          <button type="submit">Enviar</button>
+        <form action="#" className="form">
+          <input
+            onChange={this.handleChange}
+            type="text"
+            value={novaTarefa}
+          />
+          <button type="submit">
+            <FaPlus />
+          </button>
         </form>
       </div>
     );
   }
 }
-
-// toda vez que o estado mudar, a função render será chamada e modificará em tempo real no titulo da página
-
-
-// dentro de App.js, basta importar esse componente e renderizar:
-
-// import React from "react";
-// import Main from './components/Main';
-
-// import './App.css';
-
-// export default function App() {
-//   return <Main />
-// }
