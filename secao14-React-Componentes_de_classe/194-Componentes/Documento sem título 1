@@ -1,0 +1,23 @@
+adicionar 
+
+"emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+ },
+ 
+ em settings.json
+ para conseguir usar o emmet em react
+ 
+ // -------------------------------------------
+ 
+ só é possivel retornar um elemento no componente react
+ para retornar mais de um elemento:
+ flag vazia
+ 
+ return (
+    <>
+      <h1>Olá mundo</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    </>
+  );
+ 
+ ou retornar uma div com os elementos dentro
