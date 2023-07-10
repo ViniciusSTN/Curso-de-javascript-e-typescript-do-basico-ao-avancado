@@ -15,6 +15,24 @@ export default class Main extends Component {
     index: -1,
   };
 
+  // quando o componente é montado
+  componentDidMount() {
+    const tarefas = JSON.parse(localStorage.getItem("tarefas"));
+
+    if (!tarefas) return;
+
+    this.setState({ tarefas });
+  }
+
+  // quando o componente é atualizado
+  componentDidUpdate(prevProps, prevState) {
+    const { tarefas } = this.state;
+
+    if (tarefas === prevState.tarefas) return;
+
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { tarefas, index } = this.state;
@@ -40,6 +58,7 @@ export default class Main extends Component {
       this.setState({
         tarefas: [...novasTarefas],
         index: -1,
+        novaTarefa: '',
       });
     }
   }
