@@ -1,0 +1,7 @@
+instalar no react base
+
+npm i @babel/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier -D
+
+npm install --save-dev @babel/preset-react
+
+npx eslint --init
