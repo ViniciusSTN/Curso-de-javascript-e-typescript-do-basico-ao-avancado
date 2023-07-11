@@ -1,0 +1,14 @@
+ao fazer uma requisição usando fatch no google ele gera um erro por conta da política CORS, para corrigir isso usará um pacote no projeto
+
+npm i cors helmet
+
+ler express cors (é possivel stribuir uma white-list)
+
+apos fazer alterações e enviar por git
+
+testar no servidor: pm2 restart api
+
+-------------------------------------------------------------------
+para fazer commit usando o script criado:
+
+./pull-server.sh
