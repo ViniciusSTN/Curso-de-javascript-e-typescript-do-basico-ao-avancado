@@ -1,0 +1,7 @@
+arquivo styled.js
+
+instalar extensão vscode-styled-components para vscode
+
+adicionar dependencia no projeto:
+npm i styled-components 
+
