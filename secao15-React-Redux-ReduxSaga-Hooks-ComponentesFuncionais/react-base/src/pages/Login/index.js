@@ -11,11 +11,9 @@ export default function Login() {
         <small>Oie</small>
       </Title>
       <Paragrafo>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime quam
-        saepe molestias veritatis corporis, dolorum ea ipsa deleniti nobis! Fuga
-        laudantium consequuntur ipsa quo qui quibusdam voluptate exercitationem
-        beatae eos.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
       </Paragrafo>
+      <button type="button">Enviar</button>
     </Container>
   );
 }
