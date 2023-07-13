@@ -1,0 +1,3 @@
+npm i prop-types
+
+para fechar uma rota basta adicionar isClosed na property

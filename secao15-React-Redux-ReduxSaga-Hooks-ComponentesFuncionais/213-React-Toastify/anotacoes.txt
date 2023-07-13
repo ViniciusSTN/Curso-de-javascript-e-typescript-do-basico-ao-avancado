@@ -1,0 +1,4 @@
+lançar mensagens de erro ou sucesso, independente da rota
+basta importar o react-toastify e chamar a função
+
+npm i react-toastify
