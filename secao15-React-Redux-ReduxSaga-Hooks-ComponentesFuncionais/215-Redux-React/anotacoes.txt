@@ -1,0 +1,21 @@
+npm i redux react-redux
+
+
+usar dados do usuario em qualquer lugar da aplicação
+
+redux -> cria um "estado global"
+ao inves de passar um dado de um estado do componente para outro
+
+----------------------------------------------------------------------
+ex: 
+-> estado inicial: {
+	usuario_logado: false
+}
+
+para manipular o estado
+-> disparar ação -> ouvida pelo reducer -> cria newState e retorna
+
+----------------------------------------------------------------------
+
+exemplo de uso: carrinho de compras, independente da página ele mantem o estado
+
