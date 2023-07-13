@@ -1,0 +1,44 @@
+antes:
+dentro de app
+
+<BrowserRouter>
+   <Header />
+   <Routes />
+   <GlobalStyles />
+</BrowserRouter>
+    
+
+depois:
+<Router>
+   <Header />
+   <Routes />
+   <GlobalStyles />
+</Router>
+
+
+npm i history@4
+
+------------------------------------------------------------------------
+
+qualquer lugar da aplicação é possivel importar o history
+
+exemplo:
+
+import React from 'react';
+
+import { Container } from '../../styles/GlobalStyles';
+import history from '../../services/history';
+
+export default function Page404() {
+  history.push('/');
+  return (
+    <Container>
+      <h1>Essa página não existe</h1>
+    </Container>
+  );
+}
+
+// ao fazer isso, quando for direcionado para uma pagina que nao existe, será redirecionado para a home
+
+------------------------------------------------------------------------
+
