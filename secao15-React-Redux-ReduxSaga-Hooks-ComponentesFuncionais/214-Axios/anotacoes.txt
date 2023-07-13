@@ -1,0 +1,36 @@
+npm i axios
+
+fazer requisições, retorna promises
+
+// --------------------------------------------------------------------
+COMO FAZER REQUISIÇÕES E RECUPERAR DADOS:
+
+// criar arquivo de config dentro da pasta services
+
+import axios from 'axios';
+
+export default axios.create({
+  baseURL: 'http://34.151.252.12:81',
+});
+
+=============================================
+no arquivo do componente: 
+
+// importar a config que fizemos do axios
+import axios from '../../services/axios';
+
+// dentro do componente:
+
+// substitui os estados de componentes usados em componentes de classe
+// primeiro parâmetro é a função, o segundo é um array de dependências para executar mais de uma vez a função caso necessário
+React.useEffect(() => {
+    async function getData() {
+      const response = await axios.get('/alunos');
+      const { data } = response;
+      console.log(data);
+    }
+    getData();
+}, []);
+
+// --------------------------------------------------------------------
+
