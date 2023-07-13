@@ -1,0 +1,2 @@
+o ideal é ter varios reducers para evitar que um reducer ouça varias ações -> cada trecho do código ter um reducer
+
