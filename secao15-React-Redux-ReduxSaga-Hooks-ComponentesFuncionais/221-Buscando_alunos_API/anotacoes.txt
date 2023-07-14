@@ -1,0 +1,4 @@
+npm i lodash
+
+permite usar get para buscar valores de objetos, caso não existir é possivel atribuir um valor default
+
