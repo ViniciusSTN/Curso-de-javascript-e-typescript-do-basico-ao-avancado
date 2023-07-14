@@ -1,0 +1,10 @@
+npm i redux-persist
+
+salvar os estados
+
+os dados são recuperados antes de renderizar os componentes de forma automárica no redux persist
+
+salvos em local-storage -> há outras formas de salvar tambem
+
+exemplo: token de usuário
+
