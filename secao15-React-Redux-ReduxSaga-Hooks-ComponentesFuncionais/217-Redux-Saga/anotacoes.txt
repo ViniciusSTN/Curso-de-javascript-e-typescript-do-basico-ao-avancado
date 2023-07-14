@@ -1,0 +1,11 @@
+npm i redux-saga
+
+antes
+ação -> reducer -> newSatate
+
+// -----------------------------------------------------------
+agora
+middleware para executar de forma assincrona, primeiro passa pelo saga
+
+ação (request) -> saga -> reducer -> success/fail
+
