@@ -1,0 +1,41 @@
+colocar em package.json
+
+"homepage": "http://34.151.252.12:82",
+
+configurar o git no servidor (print)
+
+configurar o git no projeto:
+git init
+git config user.email 'vinicius.stn@gmail.com'
+git config user.name 'ViniciusSTN'
+git remote add origin 34.151.252.12:~/react/repo
+
+git add .
+git commit -am "Initial"
+git push origin master -u
+
+
+Dentro do servidor:
+fazer git pull no /react/app e instalar as dependencias do node:
+git pull origin master
+npm i
+
+buildar o proveto no servidor:
+npm run build
+
+dentro da pasta build:
+pwd  -> retorna o caminho, nesse caso: /home/vinicius/react/app/build
+importante saber o caminho para configurar o nginx-react-HTTP ou HTTPS
+
+o arquivo nginx já está configurado, basta trocar algumas coisas, está no arquivo da aula
+
+criar regra de firewall para porta 82
+(resolvi usar a 80 e tirar o projeto agenda)
+
+
+dentro da pasta /home/vinicius/react/app/build/ 
+sudo nano /etc/nginx/sites-enabled/react-api-rest
+colar config do nginx dentro do arquivo e salvar
+
+sudo service nginx restart
+
