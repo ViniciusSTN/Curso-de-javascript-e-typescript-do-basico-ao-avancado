@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const AlunoContainer = styled.div`
   margin-top: 30px;
@@ -22,4 +23,10 @@ export const ProfilePicture = styled.div`
     height: 36px;
     border-radius: 50%;
   }
+`;
+
+// estilizando um componente, e não um elemento igual o acima
+export const NovoAluno = styled(Link)`
+  display: block;
+  padding: 20px 0 10px 0;
 `;
