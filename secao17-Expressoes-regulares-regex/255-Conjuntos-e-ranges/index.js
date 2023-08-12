@@ -74,7 +74,7 @@ const found9 = characters.match(/[^a-zA-Z0-9]/g);
 
 const found10 = characters.match(/[\u0021-\u002F]/g)
 
-// console.log(found10);
+console.log(found10);
 
 
 // -----------------------------------------------------------
@@ -100,4 +100,4 @@ const found13 = characters.match(/\W+/g);
 
 const found14 = characters.match(/\S+/g); // quebra onde houver espaços
 
-console.log(found14);
+// console.log(found14);
