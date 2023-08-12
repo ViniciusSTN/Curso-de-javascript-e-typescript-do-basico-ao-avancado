@@ -1,6 +1,6 @@
 const html = '<h1>olá</h1>  <h2>olá novamente</h2>';
 
-// . -> qualquer caractere
+// . -> qualquer caractere exceto quebra de linha
 
 // selecionar: <*>*</*>
 
