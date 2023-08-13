@@ -1,0 +1,105 @@
+tipos:
+string
+number
+boolean
+symbol
+null
+undefined
+big (es2020)
+any -> qualquer coisa (parâmetro de função)
+void -> função que não retorna nada
+
+never -> usado para funções que nunca terminam ou sempre lançam exceções, ou seja, nunca retornam um valor de forma normal. (ex: lançar um erro)
+
+unknown -> parecido com any, mas ele não permite a troca de tipos como o any, ideal para quando for receber algo que não o tipo
+
+IMPORTANTE: o TS se preocupa com o conteúdo dos types e não com o nome do Type
+
+====================================================================
+? -> opcional
+====================================================================
+array:
+: number[] ou Array<number> = [1, 2, 3]
+
+====================================================================
+objetos:
+: {name: string} = {name: 'vinicius'};
+
+readonly -> apenas ler
+
+nome: 'Vinicius' as const -> útil para que o valor nunca mude
+
+[key: string]: unknown; -> dentro de declarações de tipo, usado para receber posteriormente uma chave ainda não existente
+
+====================================================================
+funções:
+: (x: number): number => {} 
+ou
+: (x: number) => number = (x) => {}
+
+====================================================================
+tuple:
+const clientData1: [number, string, string?] = [1, 'Vinicius']
+// por padrão só seria possivel receber esses tres valores no array
+// obs: método push consegue inserir mais do que 3
+// para resolver da pra usar readonly
+
+const clientData2: readonly [number, string, string?] = [1, 'Vinicius']
+
+const clientData3: [number, string, ...string[]]
+// nesse caso não limita a quantidade de indices do array (mas precisam ser string)
+
+====================================================================
+enum:
+enum Cores { vermelho, azul, roxo = 'uma string', marrom = 30 }
+console.log(Cores.vermelho) // 0
+console.log(Cores[0]) // vermelho
+
+// é possível unir dois enum, basta redeclarar com o mesmo nome
+
+====================================================================
+union-types:
+
+function sla(a: number | string | boolean) {}
+
+====================================================================
+tipos-literais
+let x = 10   -> number
+const y = 10 -> 10 -> subtipo de number (pois esse valor nunca muda)
+
+function escolhaCor(cor: 'Vermelho' | 'Amarelo'): string {}
+// nesse caso os subtipos devem ser 'vermelho' ou 'amarelo'
+
+====================================================================
+type-alias
+
+// como se fosse um molde de tipos
+
+type Idade = number;
+
+type Pessoa = {
+  nome: string;
+  idade: Idade;
+  corPreferida?: string;
+};
+
+type CorRGB = 'Vermelho' | 'Verde' | 'Azul';
+
+====================================================================
+intersection-types
+
+// todos atributos serão opcionais, mas é preciso ter pelo menos um
+type Pessoa = TemNome | TemSobrenome | TemIdade;
+
+// para que o objeto tenha que ter os 3 atributos necessáriamente:
+type Pessoa2 = TemNome & TemSobrenome & TemIdade;
+
+====================================================================
+funções como tipo
+
+type MapStringsCallback = (item: string) => string;
+
+function mapStrings(array: string[], callbackfn: MapStringsCallback): string[] {}
+
+
+
