@@ -1,3 +1,1 @@
-import { sla } from './mod';
-
-sla();
+import './form-control';

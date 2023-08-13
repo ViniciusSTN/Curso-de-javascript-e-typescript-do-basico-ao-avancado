@@ -1,0 +1,4 @@
+npm i @types/node -D
+npm i @types/validator -D
+npm i validator
+
