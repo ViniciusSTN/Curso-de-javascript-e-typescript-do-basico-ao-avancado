@@ -18,3 +18,8 @@ criar arquivo /.vscode/settings.json
 
 
 criar arquivo .eslintrc.js e colar config
+
+// --------------------------------------------
+// é preciso fazer mais algumas configurações para usar no front-end
+// olhar seção seguinte
+

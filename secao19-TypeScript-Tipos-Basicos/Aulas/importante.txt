@@ -1,0 +1,1 @@
+quando quiser executar um codigo, copiar arquivo para /projeto/src/

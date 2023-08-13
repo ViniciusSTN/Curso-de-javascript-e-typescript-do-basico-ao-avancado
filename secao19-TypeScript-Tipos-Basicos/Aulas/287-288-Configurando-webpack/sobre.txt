@@ -1,0 +1,22 @@
+// ---------------------------------------------------------------
+
+OBS: não usar a configuração do webpack e tsconfig dessa seção como parâmetro, pois está uma bagunça porque o frontend está junto com  backend
+
+// ----------------------------------------------------------------
+
+para compilar do jeito que está agora -> npx tsc
+
+no back a estrutura de pastas da dist é a mesma do src
+
+// -----------------------------------------------------------------
+webpack -> bundler que compila todos os arquivos em um único
+
+npm i ts-loader
+npm i webpack webpack-cli -D
+
+pesquisar no google webpack typescript
+
+npx webpack       -> gera dist
+npx webpack -w      -> gera dist e fica assistindo
+
+criar arquivos html e css manualmente em frontend
