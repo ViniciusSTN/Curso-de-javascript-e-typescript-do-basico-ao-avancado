@@ -10,14 +10,17 @@ const email = document.querySelector('.email') as HTMLInputElement;
 const password = document.querySelector('.password') as HTMLInputElement;
 const password2 = document.querySelector('.password2') as HTMLInputElement;
 
-form.addEventListener('submit', function (e) {
+function submitEventFn(e: Event) {
   e.preventDefault();
-  hideErrorMessages(this);
+  const target = e.target as HTMLFormElement;
+  hideErrorMessages(target);
   checkForEmptyFields(username, email, password, password2);
   checkEmail(email);
   checkEqualPasswords(password, password2);
-  if (shouldSendForm(this)) console.log('Formulário enviado');
-});
+  if (shouldSendForm(target)) console.log('Formulário enviado');
+}
+
+form.addEventListener('submit', submitEventFn);
 
 function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
   inputs.forEach((input) => {
