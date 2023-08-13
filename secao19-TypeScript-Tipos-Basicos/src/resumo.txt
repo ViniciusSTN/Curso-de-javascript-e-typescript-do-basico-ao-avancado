@@ -33,7 +33,7 @@ nome: 'Vinicius' as const -> útil para que o valor nunca mude
 
 ====================================================================
 funções:
-: (x: number): number => {} 
+: (x: number): number => {}
 ou
 : (x: number) => number = (x) => {}
 
@@ -101,5 +101,9 @@ type MapStringsCallback = (item: string) => string;
 
 function mapStrings(array: string[], callbackfn: MapStringsCallback): string[] {}
 
+====================================================================
+type-assertions
 
+// body por padrão pode ser HTMLBodyElement ou null, qualquer manipulação no body ocasionaria em um erro pois ele pode ser null, para evitar o erro é preciso forçar que ele seja do tipo HTMLBodyElement ou fazer uma condicional para avaliar se não é null
 
+const body = document.querySelector('body') as HTMLBodyElement
