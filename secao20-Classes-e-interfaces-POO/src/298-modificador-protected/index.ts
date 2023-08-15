@@ -1,9 +1,9 @@
 export class Empresa {
-  public readonly nome: string; // public é redundante
-  private readonly colaboradores: Colaborador[] = []; // classes podem ser tipos
-  // no caso abaixo não seria possivel atribuir valores com push
-  // private colaboradores: readonly Colaborador[] = [];
-  protected readonly cnpj: string;
+  public readonly nome: string;
+
+  // as subclasses tem acesso, diferente de private
+  protected readonly colaboradores: Colaborador[] = [];
+  private readonly cnpj: string;
 
   constructor(nome: string, cnpj: string) {
     this.nome = nome;
@@ -21,6 +21,18 @@ export class Empresa {
   }
 }
 
+export class Udemy extends Empresa {
+  constructor() {
+    super('Udemy', '11.111.111/0001-11');
+  }
+
+  popColaborador(): Colaborador | null {
+    const colaborador = this.colaboradores.pop();
+    if (colaborador) return colaborador;
+    return null;
+  }
+}
+
 export class Colaborador {
   constructor(
     public readonly nome: string,
@@ -28,7 +40,7 @@ export class Colaborador {
   ) {}
 }
 
-const empresa1 = new Empresa('Udemy', '11.111.111/0001-11');
+const empresa1 = new Udemy();
 
 const colaborador1 = new Colaborador('Luiz', 'Otavio');
 const colaborador2 = new Colaborador('Vinicius', 'Henrique');
@@ -41,6 +53,7 @@ empresa1.adicionaColaborador({
   sobrenome: 'Santana2',
 });
 
-// empresa1.mostrarColaboradores();
+const colaboradorRemovido = empresa1.popColaborador();
 
 console.log(empresa1);
+console.log(colaboradorRemovido);

@@ -2,6 +2,7 @@
 
 // public -> acessivel na classe, fora e subclasses
 // private -> acessivel dentro da classe
+// protected -> acessível dentro de subclasses
 
 export class Empresa {
   public readonly nome: string;
