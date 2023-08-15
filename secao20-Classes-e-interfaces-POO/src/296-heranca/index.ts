@@ -8,7 +8,7 @@ export class Pessoa {
     public nome: string,
     public sobrenome: string,
     private idade: number,
-    protected cof: string,
+    protected cpf: string,
   ) {}
 
   getIdade(): number {
@@ -16,7 +16,7 @@ export class Pessoa {
   }
 
   getCpf(): string {
-    return this.cof;
+    return this.cpf;
   }
 
   getNomeCompleto(): string {
