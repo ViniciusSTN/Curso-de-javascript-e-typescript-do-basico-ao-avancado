@@ -5,7 +5,7 @@
 
 // está associada com Ferramenta
 export class Escritor {
-  private _ferramenta: Ferramenta | null = null; // nçao depende pois pode ser null
+  private _ferramenta: Ferramenta | null = null; // não depende pois pode ser null
 
   constructor(private _nome: string) {}
 
