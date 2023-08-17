@@ -1,9 +1,11 @@
+// é possível usar valores default
 interface PessoaProtocolo<T = string, U = number> {
   nome: T;
   sobrenome: T;
   idade: U;
 }
 
+// é possível usar valores default
 type PessoaProtocolo2<T = string, U = number> = {
   nome: T;
   sobrenome: T;
@@ -22,6 +24,7 @@ const aluno2: PessoaProtocolo<number, number> = {
   idade: 30,
 };
 
+// tipo não informado, usará o default
 const aluno3: PessoaProtocolo2 = {
   nome: 'Luiz',
   sobrenome: 'Miranda',
