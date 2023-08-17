@@ -23,3 +23,8 @@ console.log(arrayFiltrado);
 const array2 = ['a', 'a', 'b', 'c'];
 const arrayFiltrado2 = meuFilter(array2, (value) => value !== 'a');
 console.log(arrayFiltrado2);
+
+// também é possível informar qual o tipo genérico, mas não tem necessidade, pois o TS vai inferir esse tipo
+const array3 = ['a', 'a', 'b', 'c'];
+const arrayFiltrado3 = meuFilter<string>(array3, (value) => value !== 'a');
+console.log(arrayFiltrado3);
