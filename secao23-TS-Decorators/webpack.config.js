@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/311-Type-guard_Refinando-tipos/index.ts',
+  entry: './src/327-Decorators-de-classes-TS-Introducao/index.ts',
   module: {
     rules: [
       {
