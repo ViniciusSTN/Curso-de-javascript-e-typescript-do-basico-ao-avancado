@@ -1,0 +1,9 @@
+Código limpo, flexível e fácil de ser mantido
+
+geralmente usado para POO, mas pode ser usado para programação funcional
+
+S (Single Responsabillity Principle) -> responsabilidade única
+O (Open/Closed Principle) -> Principio do aberto/fechado
+L (Liskov Substitution Principle) -> substituição de Liskov
+I (Interface segregation principle) -> segregação de interface
+D (Dependency Inversion Principle) -> inversão de dependência
