@@ -1,0 +1,19 @@
+Vantagens e desvantagens do SOLID
+
+Vantagens:
+-Código modular
+-Código reutilizável (D.R.Y - Dont Repeat Yourself)
+-Código testável
+-Baixo acoplamento e alta coesão
+-Código expansível
+-Separations of concerns (separação de conceitos) -> (responsabilidade única)
+-Fácil manutenção
+
+Desvantagens:
+-Complexidade
+-Quantidade de código (tempo)
+
+-Tenha cuidados com: YAGNI, KISS (you aren't gonna need it) | (keep it simple, stupid!)
+  -> analisar se realmente vai precisar usar isso
+
+// SOLID pode ser aplicado na refatoração
