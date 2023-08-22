@@ -1,0 +1,16 @@
+LSP
+
+-> subtipos precisam ser substituíveis por seus tipos de base
+
+uma forma de quebrar esse principio: se o método calculate de Discount retornasse um unknown e nas classes que extendem Discount esse método fosse alterado para retorar tipos diferentes, exemplo:
+em FiftyPercentDiscount o retorno de calculate é string
+em NoDiscount o retorno de calculate é um array
+
+isso quebraria o princípio, pois cada vez que usar esse método seria preciso testar o tipo
+
+ou então se o comportamento de uma função for diferente do que foi informado pela classe pai
+ex: em NoDiscount
+calculate(price: number): number {
+  return price;
+}
+isso quebraria o principio, pois o método se comporta diferente
