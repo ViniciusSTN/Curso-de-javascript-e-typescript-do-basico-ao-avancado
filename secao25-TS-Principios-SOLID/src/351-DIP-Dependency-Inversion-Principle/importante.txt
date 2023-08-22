@@ -1,0 +1,14 @@
+DIP
+
+-> Módulos de alto nível não devem depender de módulos de baixo nível, ambos devem depender de abstrações
+-> Dependa de abstrações, não de implementações
+-> Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações
+
+Alto nível: o que injeta a dependência
+Baixo nível: a dependência injetada
+
+alto nível executa os métodos de suas dependências
+
+interfaces são alto nível
+
+esse principio é importante com testes, pois é preciso enviar mocks em vários momentos, sem necessariamente ter que instanciar o objeto para passar como dependência
