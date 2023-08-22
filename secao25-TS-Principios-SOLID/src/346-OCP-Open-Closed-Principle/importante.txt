@@ -1,0 +1,14 @@
+OCP Open/Closed Principle
+
+-> entidades devem estar abertas para extenções e fechada para modificações
+
+ou seja, não ficar alterando código fonte, coisas variáveis como porcentagem de desconto é melhor passar por parâmetros ou então por herança (padrão de projeto strategy GoF) ou composição (injeção de dependência)
+
+
+por parâmetro é mais complicado, pois é preciso passar esse parâmetro em vários lugares do cógigo e alterar quando quiser mudar o valor do desconto
+
+nesse caso vai ser usado herança e injeção de dependência
+
+regra de negócio -> ex: desconto com valor minimo no carrinho
+
+arquivo: discount.ts e shopping-cart.ts

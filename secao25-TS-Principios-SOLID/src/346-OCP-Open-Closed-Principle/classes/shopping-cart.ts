@@ -1,7 +1,11 @@
+import { Discount } from './discount';
 import { CartItem } from './interfaces/cart-item';
 
 export class ShoppingCart {
   private readonly _items: CartItem[] = [];
+
+  // injeção de dependência
+  constructor(private readonly discount: Discount) {}
 
   addItem(item: CartItem): void {
     this._items.push(item);
@@ -21,8 +25,11 @@ export class ShoppingCart {
       .toFixed(2);
   }
 
-  // validações podem ser feitas a parte caso forem usadas várias vezes
-  // nesse caso só está sendo usado uma vez
+  // exemplo: black friday -> 1 promoção por dia, só vai variar em porcentagem, o preço final
+  totalWithDiscount(): number {
+    return this.discount.calculate(this.total());
+  }
+
   isEmpty(): boolean {
     return this.items.length === 0;
   }

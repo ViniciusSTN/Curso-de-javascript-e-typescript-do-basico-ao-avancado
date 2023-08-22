@@ -1,0 +1,9 @@
+Princípio da responsabilidade única
+
+-> Uma classe deve ter um e apenas um motivo para mudar
+a classe deve ter apenas uma responsabilidade
+
+dica: primeiro fazer o código, depois refatorar usando princípios
+
+uma forma de analisar se a classe está coesa é ver se os métodos usam os atributos da propria classe
+
