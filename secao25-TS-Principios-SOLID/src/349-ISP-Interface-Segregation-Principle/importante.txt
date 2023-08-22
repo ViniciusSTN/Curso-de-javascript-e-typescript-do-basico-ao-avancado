@@ -1,0 +1,5 @@
+ISP
+
+-> Os clientes não devem ser forçados a depender de interfaces/types/classes, metodos ou atributos abstratas que não utilizam
+
+ex: se a interface tem cpf e cnpj, o usuário não deve ser obriado a colocar os dois
