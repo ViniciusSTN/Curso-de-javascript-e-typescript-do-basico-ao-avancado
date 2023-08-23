@@ -11,3 +11,5 @@
 .toBeLessThanOrEqual()
 .toHaveProperty('toString')
 .toHaveProperty('age', 30)
+.toHaveBeenCalledTimes(1)
+.toHaveBeenCalledWith('texto')
