@@ -1,4 +1,4 @@
-import { MessagingProtocol } from '../classes/interfaces/messagins-protocol';
+import { MessagingProtocol } from '../classes/interfaces/messaging-protocol';
 
 // inversão de dependência
 export class Messaging implements MessagingProtocol {

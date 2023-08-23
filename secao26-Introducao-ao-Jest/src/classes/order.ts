@@ -1,7 +1,7 @@
 import { OrderStatus } from './interfaces/order-status';
 import { CustomerOrder } from './interfaces/customer-protocol';
 import { ShoppingCartProtocol } from './interfaces/shopping-cart-protocol';
-import { MessagingProtocol } from './interfaces/messagins-protocol';
+import { MessagingProtocol } from './interfaces/messaging-protocol';
 import { PersistencyProtocol } from './interfaces/persistency-protocol';
 
 // Order é de alto nível e ShoppingCart por exemplo é de baixo nível, pois Order não sabe fazer os métodos de ShoppingCart
