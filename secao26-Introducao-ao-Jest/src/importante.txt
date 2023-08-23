@@ -1,2 +1,13 @@
-toBe() -> é algo
-not.toBe()
+.toBe() -> é algo
+.not.toBe()
+.toEqual() -> geralmente para objetos
+.not.toBeNull()
+.not.toBeFalsy()
+.toBeTruthy()
+.toBeGreaterThan(9)
+.toBeLessThan()
+.toBeCloseTo() -> aproximado
+.toBeGreaterThanOrEqual()
+.toBeLessThanOrEqual()
+.toHaveProperty('toString')
+.toHaveProperty('age', 30)
