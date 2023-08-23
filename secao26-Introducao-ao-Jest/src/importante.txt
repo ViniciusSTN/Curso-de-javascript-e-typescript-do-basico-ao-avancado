@@ -6,7 +6,7 @@
 .toBeTruthy()
 .toBeGreaterThan(9)
 .toBeLessThan()
-.toBeCloseTo() -> aproximado
+.toBeCloseTo() -> aproximado (recomendável para testar com ponto flutuante)
 .toBeGreaterThanOrEqual()
 .toBeLessThanOrEqual()
 .toHaveProperty('toString')
