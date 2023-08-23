@@ -15,3 +15,5 @@
 .toHaveBeenCalledWith('texto')
 
 npx jest --clearCache
+
+jest.spyOn() -> 'espiar'
