@@ -13,7 +13,7 @@ describe('Messaging', () => {
     expect(sut.sendMessage('teste')).toBeUndefined();
   });
 
-  it('should call console.log with "Mensagem enviada:" and msg', () => {
+  it('should call console.log with "Mensagem enviada: " and msg', () => {
     const sut = createSut();
     const consoleSpy = jest.spyOn(console, 'log');
     sut.sendMessage('teste');
