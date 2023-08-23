@@ -13,3 +13,5 @@
 .toHaveProperty('age', 30)
 .toHaveBeenCalledTimes(1)
 .toHaveBeenCalledWith('texto')
+
+npx jest --clearCache
