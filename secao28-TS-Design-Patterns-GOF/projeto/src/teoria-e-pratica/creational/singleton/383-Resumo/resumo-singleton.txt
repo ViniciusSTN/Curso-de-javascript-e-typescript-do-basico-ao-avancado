@@ -1,0 +1,11 @@
+Intenção:
+
+- Garantir que uma classe tenha somente uma instância e fornecer um ponto global de acesso para ela.
+
+geralmente em recursos compartilhados
+acesso à BD, classe de Login, acesso à interface gráfica
+
+os módulos são singleton
+
+.pode subistituir as variáveis globais
+.proteger a instância (privar)

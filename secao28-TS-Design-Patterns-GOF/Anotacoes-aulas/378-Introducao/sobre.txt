@@ -1,0 +1,5 @@
+fonte: Livro Padrões de Projeto - Soluções reutilizáveis de software orientado a objetos - GoF
+
+soluções para problemas conhecidos
+
+creational, structural, behavioural

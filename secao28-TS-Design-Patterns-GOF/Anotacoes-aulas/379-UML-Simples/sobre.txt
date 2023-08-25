@@ -1,0 +1,8 @@
+- -> private
++ -> public
+# -> protected
+
+----> herança (extends)
+<>--> agregação
+<>--> composição (obs: diamante preenchido)
+- - -> dependência (implements)
