@@ -1,0 +1,17 @@
+Intenção
+
+-> Permitir que tenha uma instância e partir dela clonar para criar novos objetos
+
+.Herança é obtida via delegação
+.Evitar recriação de objetos "caros"
+.Evitar explosão de subclasses
+
+
+JS e TS são linguagens baseadas em protótipos
+Por padrão objetos tem Object.prototype
+
+classes que extendem de outras na verdade são delegações de prototype no JS, heranças
+
+const person = {name: 'Vinicius'}
+const anotherPerson = Object.create(person) // herdará o prototype de person
+OBS: Haverá uma cadeia de prototypes nesse caso
