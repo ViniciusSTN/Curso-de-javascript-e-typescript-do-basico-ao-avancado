@@ -1,0 +1,9 @@
+Separar a criação da utilização
+
+Código cliente -> Separar a construção de um objeto complexo do código cliente
+
+Criação de objetos em etapas
+
+Objeto final pode variar
+
+Classe director permite que os métodos sejam executados em uma ordem específica (facilita para o cliente)
