@@ -1,3 +1,7 @@
+// OBS: lodash tem uma função de deep clone -> obj = _.cloneDeep(objPrototype)
+
+// deep clone: no momento do clone, uma nova instância é criada, ambas apontam para endereços diferentes na memória
+
 export interface Prototype {
   clone(): Prototype;
 }
@@ -5,7 +9,10 @@ export interface Prototype {
 export class Person implements Prototype {
   public addresses: Address[] = [];
 
-  constructor(public name: string, public age: number) {}
+  constructor(
+    public name: string,
+    public age: number,
+  ) {}
 
   clone(): Person {
     const newObj = new Person(this.name, this.age);
@@ -19,7 +26,10 @@ export class Person implements Prototype {
 }
 
 export class Address implements Prototype {
-  constructor(public street: string, public number: number) {}
+  constructor(
+    public street: string,
+    public number: number,
+  ) {}
 
   clone(): Address {
     return new Address(this.street, this.number);

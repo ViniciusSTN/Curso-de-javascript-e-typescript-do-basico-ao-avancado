@@ -18,7 +18,7 @@ Person.prototype = Object.create(personPrototype);
 Person.prototype.constructor = Person;
 
 function SubPerson(firstName, lastName, age) {
-  Person.call(this, firstName, lastName, age);
+  Person.call(this, firstName, lastName, age); // simular uma herança de class
   this.fromSubClass = 'OIE';
 }
 

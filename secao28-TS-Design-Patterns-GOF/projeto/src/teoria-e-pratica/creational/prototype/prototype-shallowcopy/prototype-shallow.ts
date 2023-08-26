@@ -5,7 +5,10 @@ export interface Prototype {
 export class Person implements Prototype {
   public addresses: Address[] = [];
 
-  constructor(public name: string, public age: number) {}
+  constructor(
+    public name: string,
+    public age: number,
+  ) {}
 
   clone(): this {
     const newObj = Object.create(this);
@@ -18,7 +21,10 @@ export class Person implements Prototype {
 }
 
 export class Address {
-  constructor(public street: string, public number: number) {}
+  constructor(
+    public street: string,
+    public number: number,
+  ) {}
 }
 
 const address1 = new Address('Av Brasil', 15);
@@ -26,6 +32,7 @@ const person1 = new Person('Luiz', 30);
 person1.addAddress(address1);
 const person2 = person1.clone();
 
+// as duas instâncias aponta para uma mesma, qualquer alteração em uma, reflete na outra
 person1.addresses[0].street = 'Bla bla bla';
 
 person2.name = 'Person2';
