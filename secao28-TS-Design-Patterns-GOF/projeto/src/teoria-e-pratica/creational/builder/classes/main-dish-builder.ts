@@ -2,8 +2,11 @@ import { MealBuilderProtocol } from '../interfaces/meal-builder-protocol';
 import { MealBox } from './meal-box';
 import { Rice, Beans, Meat, Beverage, Dessert } from './meals';
 
+// builder
 export class MainDishBuilder implements MealBuilderProtocol {
   private _meal: MealBox = new MealBox();
+
+  // obs: return this -> para fazer encadeamento dos métodos
 
   reset(): this {
     this._meal = new MealBox();

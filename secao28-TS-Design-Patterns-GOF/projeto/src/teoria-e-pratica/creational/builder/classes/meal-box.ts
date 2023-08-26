@@ -1,5 +1,6 @@
 import { MealCompositeProtocol } from '../interfaces/meal-composite-protocol';
 
+// composição
 export class MealBox implements MealCompositeProtocol {
   private readonly _children: MealCompositeProtocol[] = [];
 
