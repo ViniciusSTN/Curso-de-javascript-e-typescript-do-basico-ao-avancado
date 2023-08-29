@@ -1,3 +1,5 @@
+// composite é muito usado para fazer validações
+
 // Component
 export abstract class ValidationComponent {
   abstract validate(value: unknown): boolean;
@@ -25,6 +27,7 @@ export class ValidateNumber extends ValidationComponent {
 }
 
 // Composite
+// Validação composta
 export class ValidationComposite extends ValidationComponent {
   private readonly children: ValidationComponent[] = [];
 

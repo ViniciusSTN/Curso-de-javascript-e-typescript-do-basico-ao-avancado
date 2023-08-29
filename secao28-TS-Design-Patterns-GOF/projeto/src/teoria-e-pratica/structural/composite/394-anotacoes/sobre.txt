@@ -1,0 +1,1 @@
+na árvore composite, os métodos chamados pelos objetos composites são delegados para objetos leaf

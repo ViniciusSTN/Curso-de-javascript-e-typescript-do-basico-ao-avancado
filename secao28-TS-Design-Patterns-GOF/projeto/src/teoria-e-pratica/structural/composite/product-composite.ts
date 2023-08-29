@@ -9,8 +9,12 @@ export abstract class ProductComponent {
 }
 
 // Leaf
+// quebra o princípio da interface segregation
 export class ProductLeaf extends ProductComponent {
-  constructor(public name: string, public price: number) {
+  constructor(
+    public name: string,
+    public price: number,
+  ) {
     super();
   }
 
@@ -48,7 +52,7 @@ const tablet = new ProductLeaf('Tablet', 2_000);
 const kindle = new ProductLeaf('Kindle', 300);
 const anotherProductBox = new ProductComposite();
 anotherProductBox.add(tablet, kindle);
-productBox.add(anotherProductBox);
+productBox.add(anotherProductBox); // coloca uma caixa dentro de outra
 
 console.log(productBox);
 console.log(productBox.getPrice());
