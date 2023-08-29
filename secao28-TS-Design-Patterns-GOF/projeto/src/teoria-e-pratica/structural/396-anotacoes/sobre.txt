@@ -1,0 +1,4 @@
+existe duas estruturas: composição e herança múltipla
+
+muitas linguagens não suportam herança multipla, então nesse caso usar composição
+
