@@ -1,5 +1,6 @@
 import { DeviceImplementation } from '../device/device-implementation';
 
+// abstraction
 export class RemoteControl {
   constructor(protected device: DeviceImplementation) {}
 

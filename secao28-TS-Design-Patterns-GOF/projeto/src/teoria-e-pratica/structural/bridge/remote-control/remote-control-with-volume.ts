@@ -1,5 +1,6 @@
 import { RemoteControl } from './remote-control';
 
+// refined abstraction
 export class RemoteControlWithVolume extends RemoteControl {
   volumeUp(): void {
     const oldVolume = this.device.getVolume();
