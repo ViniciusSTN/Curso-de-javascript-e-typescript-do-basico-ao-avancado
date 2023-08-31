@@ -4,13 +4,10 @@ import {
 } from './system-user-protocol';
 
 export class AdminUser implements SystemUserProtocol {
-  public firstName: string;
-  public userName: string;
-
-  constructor(firstName: string, userName: string) {
-    this.firstName = firstName;
-    this.userName = userName;
-  }
+  constructor(
+    public firstName: string,
+    public userName: string,
+  ) {}
 
   async getAddresses(): Promise<SystemUserAddressProtocol[]> {
     return new Promise((resolve) => {

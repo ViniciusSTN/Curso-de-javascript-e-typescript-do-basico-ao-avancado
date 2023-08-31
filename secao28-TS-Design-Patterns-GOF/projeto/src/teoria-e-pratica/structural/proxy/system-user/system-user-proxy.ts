@@ -4,11 +4,15 @@ import {
 } from './system-user-protocol';
 import { AdminUser } from './admin-user';
 
+// é um proxy virtual, de cache e inteligente
 export class SystemUserProxy implements SystemUserProtocol {
   private realUser: SystemUserProtocol | null = null;
   private realUserAddresses: SystemUserAddressProtocol[] | null = null;
 
-  constructor(public firstName: string, public userName: string) {}
+  constructor(
+    public firstName: string,
+    public userName: string,
+  ) {}
 
   private createUser(): SystemUserProtocol {
     if (this.realUser === null) {
