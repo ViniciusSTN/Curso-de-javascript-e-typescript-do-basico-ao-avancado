@@ -1,0 +1,7 @@
+heroku não salva arquivos, ao reiniciar o servidor os arquivos seriam perdidos
+
+para isso nao acontecer é preciso de um provider de arquivos
+
+será usado o cloudinary
+(logado com github)
+

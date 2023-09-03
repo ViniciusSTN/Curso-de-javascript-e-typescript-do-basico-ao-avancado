@@ -1,0 +1,20 @@
+Será utilizado o postgre + docker, mas também é possível usar o SQLLIte, MySQL ou MongoDB
+
+instalar docker
+https://www.nerdlivre.com.br/como-instalar-o-docker-no-ubuntu/
+
+instalar docker compose
+https://www.nerdlivre.com.br/como-instalar-o-docker-compose-no-ubuntu-22-04/
+
+criar arquivo docker-compose.yml e configurar
+
+docker compose up (criar servidor usando docker)
+
+docker compose up -d (roda em bg)
+
+docker ps -a (ver rodando)
+
+npx crete-strapi-app .
+
+npm run develop
+

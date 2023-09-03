@@ -1,0 +1,628 @@
+Hub para encontrar containers Docker:
+https://hub.docker.com/
+
+Comando para baixar o container:
+docker pull NOMEDAIMAGEM     ou
+docker run NOMEDAIMAGEM
+
+Comando para iniciar um novo container em modo de execução (flag it):
+docker run -it NOMEDAIMAGEM
+
+Comandos para listar containers:
+docker ps
+docker container ls
+
+Comando para listar containers que já foram executados (flag -a):
+docker ps -a
+
+Comando para deixar container rodando em background (flag -d):
+docker run -d NOMEDAIMAGEM
+
+Comando para parar container:
+docker stop NOMEDAIMAGEM  ou IDDOCONTAINER
+
+Comando para expor o container em uma porta (flag -p):
+docker run -d -p 80:80 NOMEDAIMAGEM
+(esse exemplo habilita na porta 80) (o primeiro é a porta do pc e o segundo a porta do container)
+
+Comando para restartar um container:
+docker start IDDOCONTAINER ou NOMEDAIMAGEM
+
+Comando para executar um container dando nome a ele (flag --name):
+docker run --name NOMEQUEVOCEQUERDARAIMAGEM  NOMEDAIMAGEM
+
+Comando para acessar os logs de um container:
+docker logs IDDOCONTAINER ou NOMEDAIMAGEM
+
+Comando para remover um container rm:
+===>(pode utilizar a flag -f (force) para forçar a remoção do container)
+docker rm IDDOCONTAINER ou NOMEDAIMAGEM                        ou
+docker rm IDDOCONTAINER ou NOMEDAIMAGEM -f
+
+Comando para listar as imagens:
+docker image ls
+
+Comando para verificar o status dos containeres:
+docker stats
+
+    === CRIANDO UMA IMAGEM ===
+    
+Criar um arquivo Dockerfile na pasta do projeto com as seguintes instruções:
+FROM: imagem base
+WORKDIR: diretório da aplicação
+EXPOSE: porta da aplicação
+COPY: quais arquivos precisam ser copiados
+CMD []: comandos a serem executados
+
+exemplo:
+FROM node
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+
+    === EXECUTANDO UMA IMAGEM ===
+    
+Comando para criar uma imagem:
+docker build DIRETÓRIODAIMAGEM     (se estiver na pasta do projeto utilize: docker build .)
+
+Comando para executar uma imagem:
+docker run NOMEDAIMAGEM     (para alterar os arquivos de uma imagem, deve fazer uma build nova)
+
+   === PROCURAR COMANDOS ===
+
+Para acessar lista de comandos do Docker utilizar a flag --help, exemplos:
+docker --help    (mostra os comandos gerais do docker)
+docker run --help    (mostra os comandos do metódo run do docker)
+
+   === ALTERAR NOME E TAG ===
+   
+Comando para nomear uma imagem:
+docker tag IDDOCONTAINER NOMEQUEQUEREMOSDAR
+
+Comando para mudar a tag (tipo versionamento)
+docker tag IDDOCONTAINER NOMEDATAGDAIMAGEM:NOVONOME
+
+   === CRIAR IMAGEM ATRIBUNDO NOME E TAG ===
+   
+Comando para criar a imagem atribuindo nome (flag -t): (executar na pasta do projeto com o dockerfile ou indicar o caminho no lugar do .)
+docker build -t NOMEASERATRIBUIDO .
+
+Comando para criar a imagem atribuindo nome e a tag(flag -t): (executar na pasta do projeto com o dockerfile ou indicar o caminho do projeto no lugar do .)
+docker build -t NOMEASERATRIBUIDO:TAGASERATRIBUIDA .
+
+   === RODAR A IMAGEM COM O TERMINAL INTERATIVO ===
+   
+Comando para rodar a imagem com terminal:
+docker start -i NOMEOUIDDAIMAGEM
+
+   === REMOVER IMAGENS ===
+   
+Comando para remover imagens:
+docker rmi NOMEDAIMAGEMOUID
+
+Comando para forçar a remoção da imagem caso não consiga (flag -f)
+docker rmi -f NOMEDAIMAGEMOUID
+
+Comando para remover várias imagens e conteiners ao mesmo tempo
+docker system prune
+
+   === EXECUTAR CONTAINER QUE SE APAGA APÓS A EXECUÇÃO ===
+   
+Comando para executar um container e apagar após o uso (metódo run com flag --rm):
+docker run --rm NOMEDAIMAGEM
+
+   === COPIAR ARQUIVOS ENTRE CONTAINERS E DIRETÓRIOS ===
+   
+Comando para copiar arquivos entre containers e diretórios:
+docker cp NOMEDOCONTAINERRODANDO:LOCALENOMEDOARQUIVO ENDEREÇODODESTINO
+
+   === VERIFICAR INFORMAÇÕES DO CONTAINER ===
+   
+Comando para verificar as informações de um container:
+docker top NOMEDOCONTAINEROUID
+
+   === INSPECIONAR CONTAINER ===
+   
+Comando para inspecionar container:
+docker inspect NOMEOUIDDOCONTAINER
+
+   === CONECTAR O DOCKER AO DOCKER HUB ===
+   
+Crie uma conta no Docker Hub
+
+Comando para autenticar o docker no docker hub:
+docker login
+Coloque seu nome de usuário e senha
+
+Comando para desconectar do Docker Hub:
+docker logout
+
+   === ENVIAR IMAGENS PARA O DOCKER HUB === (salvar imagem)
+   
+Primeiro voce deve ter autenticado a conta no Docker Hub e criar o repositório no Docker Hub
+Você deve criar a build utilizando:
+docker build - t NOMEDEUSUARIODOCKERHUB/NOMEDOREPOSITORIOCRIADO .
+Comando para enviar uma imagem para o Docker Hub:
+docker push NOMEDEUSUARIODOCKERHUB/NOMEDOREPOSITORIOCRIADO(igual da build)
+
+Para atualizar uma imagem, fazer o build com nova tag e fazer o push para o docker hub
+exemplo:
+docker build - t NOMEDEUSUARIODOCKERHUB/NOMEDOREPOSITORIOCRIADO:NOMEDAVERSÃO .
+docker push NOMEDEUSUARIODOCKERHUB/NOMEDOREPOSITORIOCRIADO:NOMEDAVERSÃO (igual da build)
+
+Comando para baixar o repositório criado do Docker Hub:
+docker pull NOMEDEUSUARIODOCKERHUB/NOMEDOREPOSITORIOCRIADO:NOMEDAVERSÃO
+
+   === VOLUMES ===
+  
+Volumes é a forma de persistir/manter os dados alterados independentes do container (backup de dados)
+
+Comando para ver todos os volumes (named e anonymous) do ambiente de trabalho:
+docker volume ls
+
+Comando para criar volume nomeado manualmente
+docker volume create NOMEDOVOLUME
+
+Comando para inspecionar um volume:
+docker volume inspect NOMEDOVOLUME
+
+Comando para remover volumes:
+docker volume rm NOMEDOVOLUME
+
+Comando para remover todos os containers não utilizados:
+docker volume prune
+
+- Os Volumes ficam salvos na pasta:
+/var/lib/docker/volumes
+
+   === TIPOS DE VOLUMES ===
+   
+ANÔNIMOS(anonymous): Diretórios criados pela flag -v com nome aleatório
+NOMEADOS(named): Volumes com nomes, pode se referir ao nome e identificar o uso no projeto
+BIND MOUNTS: Salva os dados na máquina sem gerenciamento do Docker, deve informar um diretório
+
+    === VOLUME ANÔNIMO ===
+    
+ Comando para criar volume anônimo (flag -v /data):
+ docker run -v /data
+ exemplo:
+ docker run -d -p 80:80 --name NOMEDOCONTAINER -v /data NOMEDAIMAGEM
+ 
+     === VOLUME NOMEADO ===
+    
+ Comando para criar volume anônimo (flag -v NOMEDOVOLUME:/data):
+ docker run -v NOMEDOVOLUME:/data
+ exemplo:
+ docker run -d -p 80:80 --name NOMEDOCONTAINER -v NOMEDOVOLUME:/DIRETÓRIOIGUALDOWORKDIRDODOCKERFILE NOMEDAIMAGEM
+ 
+    === VOLUME BIND MOUNTS ===
+    
+ Volumes big mounts não aparecem na listagem de volumes do docker
+    
+ Comando para criar volume anônimo (flag -v /DIRETÓRIO/NOMEDOVOLUME:/data):
+ docker run -v /DIRETÓRIO/NOMEDOVOLUME:/data
+ exemplo:
+ docker run -d -p 80:80 --name NOMEDOCONTAINER -v /DIRETÓRIO/NOMEDOVOLUME:/DIRETÓRIOIGUALDOWORKDIRDODOCKERFILE NOMEDAIMAGEM
+ exemplo no windows (barrado caminho é invertida(padrão windows)(copiar caminho/path pelo vscode)):
+ docker run -d -p 80:80 --name phpmessages_container -v H:20_DOCKER\arquivos\2_volumes\:/var/www/html/ --rm phpmessages
+ 
+    === UTILIZANDO O BIND MOUNT PARA ATUALIZAR O CONTAINER EM TEMPO REAL ===
+    
+Coloque o diretório apontando para o diretório raiz do projeto que as alterações serão aplicadas em tempo real no container.
+
+   === CONFIGURANDO VOLUME SOMENTE LEITURA ===
+   
+Comando para configurar um volume para somente leitura (parametro :ro)
+docker run -d -p 80:80 --name NOMEDOCONTAINER -v NOMEDOVOLUME:/DIRETÓRIOIGUALDOWORKDIRDODOCKERFILE:ro NOMEDAIMAGEM  
+ 
+   === NETWORKS DOCKER ===
+   
+É utilizada para gerenciar a conexão entre vários containers e com outras platafotmas
+São criadas fora dos containers como os volumes
+
+Comando para listar as redes/networks:
+docker network ls
+
+Comando para criar uma rede bridge:
+docker network create NOMEDAREDE
+
+Comando para criar especificando o driver a ser utilizado:
+docker network create -d TIPODODRIVER NOMEDAREDE
+
+Comando para remover uma rede:
+docker network rm NOMEDAREDE
+
+Comando para remover todas as redes que não estiverem sendo utilizadas:
+docker network prune
+
+Comandor para conectar um container a uma rede:
+docker network connect NOMEDAREDE IDDOCONTAINER
+
+Comando para desconectar um container de uma rede:
+docker network disconnect NOMEDAREDE IDDOCONTAINER
+
+Comando para inspecionar redes:
+docker network inspect NOMEDAREDE
+
+Comando para conectar um container a uma rede na inicialização (flag --network NOMEDAREDE):
+docker run -d -p 3306:3306 --name NOMEDOCONTAINER --rm --network NOMEDAREDE NOMEDAIMAGEM
+
+Comando para o MySQL não pedir senha na conexão (flag -e MYSQL_ALLOW_EMPTY_PASSWORD=True):
+Inserir a flag no comando docker run
+
+   === TIPOS DE CONEXÃO ===
+   
+EXTERNA: Conexão com api de servidor remoto
+HOST: Conexão com o computador que esta rodando o Docker
+ENTRE CONTAINERS: Conexão direta entre containers
+
+   === TIPOS DE DRIVERS ===
+   
+BRIDGE: É o default, permite que containers façam a conexão entre si
+HOST: Permite a conexão do Docker com o computador onde esta sendo executado (IP do host = host.docker.internal)
+MACVLAN: Permite a conexão a um container pelo endereço MAC
+NONE: Remove as conexões de rede de um container
+PLUGINS: Permite utilizar extensões de terceiros para a conexão
+
+   === POSTMAN - PROGRAMA PARA TESTE/DESENVOLVIMENTO DE API === Mesma função do Insomnia
+   
+https://www.postman.com/
+sudo snap postman
+
+  === YAML ===
+  
+--- Linguangem de configuração utilizada para configurar o Docker Compose ---
+
+- Utiliza arquivos .yml ou .yaml
+- Fim da linha é o fim da instrução - não utiliza ponto ou virgula
+- A identação deve conter um ou mais espaços (não usar tab), cada uma define um novo bloco
+- O espaço é obrigatório após a chave
+
+Exemplo:
+
+nome: "Fulano"
+idade: 30
+altura: 1.90
+
+objeto:
+  versao: 2
+  arquivo: teste
+  
+ - Comentários são iniciados com o caractere #, exemplo:
+ # Exemplo de Comentário YAML
+ 
+ - Aceita numero inteiros e floats
+ - Strings podem ser inseridas com ou sem aspas - as duas formas são válidas
+ - Valores nulos podem ser aferidos pelo caractere ~ ou pela palavra reservada null
+ - O valor booleano verdadeiro é expressado pelas palavras reservadas True ou On
+ - O valor booleano falso é expressado pelas palavras resevadas False ou Off
+ 
+ - As listas podem ser inseridas utilizando [] ou como a sintaxe do segundo exemplo:
+ 
+ Lista1: [1, 2, 3, 4, 5]
+ 
+ Lista2:
+  - 1
+  - 2
+  - 3
+
+- Os objetos ou dicionários podem ser incluidos com {} ou como a sintaxe do segundo exemplo:
+
+objeto 1: { a: 1, b: 2, c: 3 }
+
+objeto 2:
+  chave: 1
+  chave: 2
+  chave: 3  
+  
+   === DOCKER COMPOSER ===
+   
+- É uma ferramenta para rodar multiplos containers através de um arquivo de configuração
+- Consegue rodar multiplas builds e runs
+
+Comando para verificar os serviços do Docker Compose:
+docker-compose ps
+
+   === INSTALAÇÃO ===
+   
+https://docs.docker.com/compose/install/
+
+sudo snap install docker
+sudo apt  install docker-compose
+
+Comando para verificar se o Docker Compose já esta instalado:
+docker compose version
+
+   === ARQUIVO DOCKER-COMPOSE.YML ===
+
+-- Exemplo de arquivo docker-compose.yml (Roda MySQL e Wordpress):
+
+version: '3.3'
+
+services:
+  # Container de MySQL
+  db:
+    image: mysql:5.7 # FROM mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: senha
+
+  # Container de Wordpress
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: usuario
+      WORDPRESS_DB_PASSWORD: senha
+      WORDPRESS_DB_NAME: wordpress
+
+volumes:
+  db_data: {}
+
+   === COMANDOS DOCKER COMPOSE ===
+   
+Comando para executar o Docker Compose:
+docker-compose up 
+docker compose up  (só funciona nas versões mais novas)
+
+Comando para rodar o Docker Compose em background (flag -d)
+docker-compose up -d
+
+Comando para parar o Docker Compose rodando em background:
+docker-compose down
+
+Comando para parar o Docker Compose rodando no terminal:
+ctrl + c
+
+   === VARIÁVEIS DE AMBIENTE ===
+   
+- São definida em um arquivo env_file
+- São chamadas utilizando ${NOMEDAVARIAVEL} ou carregando o arquivo como no exemplo abaixo:
+
+env_file:
+  - ./config/wp.env
+  
+   === NETWORKS NO COMPOSE ===
+   
+- O compose cria utilizando uma rede do tipo bridge entre os containers
+- A rede pode ser isolada com a chave networks para conectar somente alguns dos containers
+- Pode ser definido drives diferentes
+
+- EXEMPLO de configuração docker-compose.yaml com definição de rede e uso de arquivo .env:
+
+version: '3.3'
+
+services:
+  # Container de MySQL
+  db:
+    image: mysql:5.7 # FROM mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file:
+      - ./config/db.env
+    networks:
+      - backend
+
+  # Container de Wordpress
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    env_file:
+      - ./config/wp.env
+    networks:
+      - backend
+
+volumes:
+  db_data: {}
+networks:
+  backend:
+    driver: bridge
+
+   === EXEMPLO DE DOCKER-COMPOSE.YAML PARA USAR IMAGENS DOCKER ===
+
+version: '3.3'
+
+services:
+  db:
+    image: mysqlcompose
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+
+  backend:
+    depends_on:
+      - db
+    image: flaskcompose
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - dockercompose
+networks:
+  dockercompose:
+
+   === EXEMPLO DE DOCKER-COMPOSE.YAML PARA CRIAR AS BUILDS ===
+   
+version: '3.3'
+
+services:
+  db:
+    build: ./mysql/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+
+  backend:
+    depends_on:
+      - db
+    build: ./flask/
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - dockercompose
+networks:
+  dockercompose:
+
+   === EXEMPLO DE DOCKER-COMPOSE.YAML COM VOLUME BIND MOUNT ===
+   
+version: '3.3'
+
+services:
+  db:
+    build: ./mysql/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+
+  backend:
+    depends_on:
+      - db
+    build: ./flask/
+    ports:
+      - "5000:5000"
+    restart: always
+    volumes:
+      - /home/noteubuntu/Área de Trabalho/Curso Docker Udemy/Vs Files/Sessão 7 - Docker Composer/6_bind_mount_compose/flask:/app
+    networks:
+      - dockercompose
+networks:
+  dockercompose:
+  
+     === DOCKER SWARM ===
+     
+- Serve para orquestrar e administrar diversos containers em diversos servidores.
+
+- Nodes: é uma instância(máquina) que faz parte do swarm
+- Manager Node: É um Node que gerencia os demais Nodes
+- Worker Node: Node que trabalha em fução do Manager Node
+- Service: um conjunto de tasks que o Manager Node manda o Worker Node executar
+- Task: Comandos que são executados no Node
+
+- Para configurar na AWS:
+
+- Criar uma conta em https://aws.amazon.com
+- Configurar uma chave SSH
+
+- Ir em EC2
+- Criar uma nova instância com Amazon Linux 2 AMI (HVM), e configurar a Security Network com as seguintes configurações:
+
+   TYPE         -        PROTOCOL        -        PORT RANGE       -        SOURCE        -       DESCRIPTION
+* Custom TCP    -          TCP           -          2377           -       0.0.0.0/0      -         docker
+*  HTTP         -          TCP           -           80            -       0.0.0.0/0      -
+*  SSH          -          TCP           -           22            -       0.0.0.0/0      -
+
+- Clicar na nova instância e ir na aba connect para pegar o comando de CLI para acessar a instância de VM
+
+- Entrar na VM pelo terminal e fazer as seguintes configurações:
+
+- sudo yum update -y
+- sudo yum install docker
+- sudo service docker start
+- sudo usermod -a -G docker ec2-user
+- sudo docker swarm init
+
+- Para configurar no Docker LABS: 
+
+- Acessar https://labs.play-with-docker.com
+- Iniciar o labs, ele habilita o uso por 4 horas, serve para estudo e testes
+- Clicar em adicionar instância e criar quantas instâncias precise, elas já configuradas com o docker (para copiar texto do terminal: crtl + insert, para colar: crtl+shift+v)
+
+- Iniciar o Docker com: docker swarm init --advertise-addr IPDAMÀQUINA
+
+- COMANDOS DO DOCKER SWARM:
+
+- Comando para iniciar o docker swarm (Faz a máquina virar um Node e o atribui como Manager:
+docker swarm init
+
+- Comando para iniciar o docker swarm passando o IP da máquina:
+docker swarm init --advertise-addr IPDAMÀQUINA
+
+- Comando para verificar os nodes ativos:
+docker node ls
+
+- Comando para adicionar worker nodes ao manager (Vem o comando com token quando cria o manager com 'docker swarm init', é importante salvar esse comando em algum lugar):
+docker swarm join --token TOKEN IP:PORTA
+exemplo:
+docker swarm join --token SWMTKN-1-35jlytde1ur639hj0wpv0dss78gf4kajo3a7d7cvip9i93gyf3-0a44ada5qmk0r6qk3vcb42mdn 192.168.0.27:2377
+
+-Comando para iniciar um serviço(container) no swarm (similar ao 'docker run', aceita paramentros como porta,etc:
+docker service create --name NOME CONTAINER
+
+- Comando para listar os serviços rodando no swarm:
+docker service ls
+
+- Comando para remover um serviço:
+docker service rm NOMEDOSERVIÇO
+
+- Comando para criar um serviço com réplicas (caso um servidor caia o manager reinicia ele automaticamente:
+docker service create --name NOME --replicas NUMERO CONTAINER
+
+- Comando para recuperar o token do swarm manager e poder adicionar mais Workers:
+docker swarm join-token manager
+
+- Comando para verificar as informações do swarm:
+docker info
+
+- Comando para desligar um Node de um swarm (não remove, só desliga):
+docker swarm leave
+
+- Comando para remover um Node de um swarm:
+docker node rm IDDOCONTAINER
+
+- Comando para inspecionar um serviço:
+docker service inspect IDDOSERVIÇO
+
+- Comando para verificar quais containers estão rodando e quais já foram rodados pelos serviços:
+docker service ps IDDOSERVIÇO
+
+- Comando para rodar o docker compose no swarm:
+docker stack deploy -c ARQUIVO.YAML NOME
+
+- Comando para escalar um swarm com compose:
+docker service scale NOMEDOSERVIÇO=REPLICAS(numero que voce quer)
+exemplo:
+docker service scale nginx_web=3
+
+- Comando para fazer um serviço não receber mais tasks(drain: não atualiza - active: atualiza):
+docker node update --availability drain IDDOSERVIÇO
+
+- Comando para atualizar uma task de um serviço:
+docker service update --image IMAGEM SERVIÇO
+
+- Para utilizar redes no swarm primeiro é preciso criar uma rede (utilizar drive 'overlay') (serve para isolar máquinas em redes próprias):
+docker network create --driver overlay NOMEDAREDE
+- Para depois criar um serviço utilizando a flag ( --network NOMEDAREDE)
+
+- Comando para adicionar um serviço a uma rede:
+docker service update --network-add NOMEDAREDE NOMEDOSERVIÇO

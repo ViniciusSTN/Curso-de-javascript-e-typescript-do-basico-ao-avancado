@@ -1,0 +1,54 @@
+npm i cloudinary
+npm i @strapi/provider-upload-cloudinary
+
+https://www.npmjs.com/package/@strapi/provider-upload-cloudinary
+
+criar aquivo config/plugins.js
+
+module.exports = ({ env }) => ({
+  upload: {
+    config: {
+      provider: 'cloudinary',
+      providerOptions: {
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET'),
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
+    },
+  },
+});
+
+
+configurar variaveis de ambiente no .env (dashboard da cloudnary)
+CLOUDINARY_NAME
+CLOUDINARY_KEY
+CLOUDINARY_SECRET
+
+
+adicionar em middlewares
+{
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
+
+parar servidor e iniciar novamente
+npm run develop
+
+agora os arquivos serão hospedados na cloudinary quando adicionados no strapi
+
+
