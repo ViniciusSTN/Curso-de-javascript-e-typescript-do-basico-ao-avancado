@@ -1,2 +1,10 @@
+APARENTEMENTE OS BD DA HEROKU NÃO SÃO MAIS GRATUITOS
+
 https://docs.strapi.io/dev-docs/deployment/heroku
+
+sudo snap install --classic heroku
+heroku login
+
+iniciar projeto git
+commitar
 
