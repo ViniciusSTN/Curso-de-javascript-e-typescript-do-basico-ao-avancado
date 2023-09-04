@@ -1,0 +1,6 @@
+npx eslint --init
+
+"plugin:react-hooks/recommended"
+
+npm i -D eslint-plugin-react-hooks
+
