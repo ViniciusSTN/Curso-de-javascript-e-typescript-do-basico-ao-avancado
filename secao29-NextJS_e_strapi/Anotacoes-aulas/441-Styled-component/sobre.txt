@@ -1,0 +1,40 @@
+Deprecated
+https://github.com/vercel/next.js/tree/deprecated-main/examples/with-styled-components
+
+
+
+https://nextjs.org/docs/pages/building-your-application/routing/custom-app
+
+https://nextjs.org/docs/pages/building-your-application/routing/custom-document
+
+
+// -----------------------------------------------------------------
+
+npm i styled-components
+npm i -D @types/styled-components
+npm i -D babel-plugin-styled-components
+
+
+os códigos da aula de styled components não funcionou, tive que procurar nas documentações
+
+Sobre styled components
+https://styled-components.com/docs/advanced#nextjs
+
+https://github.com/vercel/next.js/blob/canary/examples/with-styled-components-babel/pages/_document.tsx
+
+EXEMPLO DE STYLED COMPONENTS
+Obs: peguei apenas o src e coloquei no projeto
+https://github.com/vercel/next.js/tree/canary/examples/with-styled-components-babel
+
+é preciso criar 
+.babelrc
+pages/_document.ts  (arquivo document personalizado)
+
+pegar arquivos _app.tsx; document.tsx e index.tsx e, src/pages/
+
+--------------------------------------------------------------------
+
+OBS: Tudo que tiver dentro de pages é rota, exceto _ -> são arquivos de configuração
+
+
+
