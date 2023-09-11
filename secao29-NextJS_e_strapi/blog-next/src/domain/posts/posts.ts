@@ -83,7 +83,8 @@ export type PostAttributesData = {
   cover: PostCover;
 };
 
-export type PostData = {
-  id: PostID;
-  attributes: PostAttributesData;
+export type AllPostsData = {
+  data: PostData[];
 };
+
+export type PostData = { id: PostID; attributes: PostAttributesData };
