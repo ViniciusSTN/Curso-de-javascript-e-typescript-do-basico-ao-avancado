@@ -1,0 +1,12 @@
+nem todo arquivo com _ dentro de pages não são rotas, são apenas alguns arquivos de configuração, exemplo: _app.tsx e _document.tsx
+
+Portanto se tiver um arquivo qualquer dentro de pages com _ no nome ele vai se comportar como rota
+
+rotas estáticas e dinâmicas:
+pages
+	users
+		index.tsx (/users) -> sempre o index é o / da rota
+		profile.tsx (/users/profile)
+		[nomequalquer].tsx (/users/qualquer-coisa)  
+
+

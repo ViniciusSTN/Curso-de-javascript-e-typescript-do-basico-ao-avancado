@@ -1,0 +1,9 @@
+criar um repositório público no github com base de projeto já configurada
+
+repositório do Luiz Otavio:
+https://github.com/luizomf/next-example-with-typescript-and-styled-components.git
+
+comando para criar novos projetos com base nesse:
+
+npx create-next-app . -e <link do projeto github>
+
