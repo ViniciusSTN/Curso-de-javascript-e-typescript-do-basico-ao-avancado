@@ -1,0 +1,19 @@
+
+getStaticProps 
+(Static Generation) -> Feito no build time
+Mais performatico
+É entregue apenas HTML ao usuário
+
+pode usar revalidate para rebuildar em certo tempo
+
+
+getServerSideProps 
+(Server-side-rendering) -> renderiza no servidor a cada requisição
+-> Pode ser um problema dependendo da quantidade de acessos, pois a cada acesso uma renderozação é feita
+
+
+é possível fazer um site hibrido
+
+Ou então fazer parte do site renderizar no navegador do cliente (convencional usando react)
+exemplo: pagina de login
+
