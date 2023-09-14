@@ -90,6 +90,14 @@ export type PostAttributesData = {
 
 export type AllPostsData = {
   data: PostData[];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
 };
 
 export type PostData = { id: PostID; attributes: PostAttributesData };
