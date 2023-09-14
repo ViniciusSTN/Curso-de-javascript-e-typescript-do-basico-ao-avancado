@@ -1,3 +1,4 @@
+import { Post } from '@/containers/Post';
 import { countAllPosts } from '@/data/posts/count-all-posts';
 import { getAllPosts } from '@/data/posts/get-all-posts';
 import { getPosts } from '@/data/posts/get-post';
@@ -9,7 +10,7 @@ export type DynamicPostsProps = {
 };
 
 export default function DynamicPost({ post }: DynamicPostsProps) {
-  return <p>{post.attributes.title}</p>;
+  return <Post post={post} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
