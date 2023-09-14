@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { Heading } from '@/components/Heading';
 import { MainContainer } from '@/components/MainContainer';
 import { PostCover } from '@/components/PostCover';
+import { PostDetails } from '@/components/PostDetails';
 import { PostData } from '@/domain/posts/posts';
 
 export type PostProps = {
@@ -10,6 +11,8 @@ export type PostProps = {
 };
 
 export const Post = ({ post }: PostProps) => {
+  console.log('DATAAA' + post.attributes.createdAt);
+
   return (
     <>
       <Header />
@@ -19,6 +22,11 @@ export const Post = ({ post }: PostProps) => {
         <PostCover
           coverUrl={post.attributes.cover.data.attributes.formats.medium.url}
           alt={post.attributes.title}
+        />
+        <PostDetails
+          author={'Nome'}
+          category={'Post'}
+          date={post.attributes.createdAt}
         />
         <div>{post.attributes.content}</div>
       </MainContainer>
