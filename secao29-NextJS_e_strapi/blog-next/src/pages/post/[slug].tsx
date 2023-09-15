@@ -1,15 +1,29 @@
+import { useRouter } from 'next/router';
 import { Post } from '@/containers/Post';
 import { countAllPosts } from '@/data/posts/count-all-posts';
 import { getAllPosts } from '@/data/posts/get-all-posts';
 import { getPosts } from '@/data/posts/get-post';
 import { PostData } from '@/domain/posts/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Error from 'next/error';
 
 export type DynamicPostsProps = {
   post: PostData;
 };
 
 export default function DynamicPost({ post }: DynamicPostsProps) {
+  const router = useRouter();
+
+  // se a página já foi criada no back mas ainda não foi atualizado no front por conta do fallback, renderiza Página carregando...
+  // necessário testar em npm start e não em dev
+  if (router.isFallback) {
+    return <div>Página carregando...</div>;
+  }
+
+  if (!post) {
+    return <Error statusCode={404} />; // pode criar um componente
+  }
+
   return <Post post={post} />;
 }
 
@@ -27,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       };
     }),
-    fallback: false, // qualquer caminho não incluso em paths retorna uma página 404
+    fallback: true, // false: qualquer caminho não incluso em paths retorna uma página 404
   };
 };
 
@@ -36,6 +50,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: { post: data[0] },
-    // revalidate: 60,
+    revalidate: 3, // para isso é preciso de um servidor rodando em produção
   };
 };
