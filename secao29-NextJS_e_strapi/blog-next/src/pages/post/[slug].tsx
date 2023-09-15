@@ -13,6 +13,7 @@ export default function DynamicPost({ post }: DynamicPostsProps) {
   return <Post post={post} />;
 }
 
+// SSG
 export const getStaticPaths: GetStaticPaths = async () => {
   const numbersOfPosts = await countAllPosts();
   const { data } = await getAllPosts(`pagination[limit]=${numbersOfPosts}`);

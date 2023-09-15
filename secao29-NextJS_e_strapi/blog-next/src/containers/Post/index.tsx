@@ -37,8 +37,8 @@ export const Post = ({ post }: PostProps) => {
           alt={post.attributes.title}
         />
         <PostDetails
-          author={'Nome'}
-          category={'Post'}
+          author={post.attributes.author.data.attributes.name}
+          category={post.attributes.category.data.attributes.name}
           date={post.attributes.createdAt}
         />
         <PostContainer content={post.attributes.content} />
