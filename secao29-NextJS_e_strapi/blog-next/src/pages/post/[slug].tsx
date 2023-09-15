@@ -50,6 +50,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: { post: data[0] },
-    revalidate: 3, // para isso é preciso de um servidor rodando em produção
+    revalidate: 600, // para isso é preciso de um servidor rodando em produção
   };
 };
