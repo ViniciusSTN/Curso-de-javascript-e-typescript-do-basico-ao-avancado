@@ -23,6 +23,7 @@ export default function Page({ posts, category, pagination }: CategoryProps) {
   return <HomePage posts={posts} category={category} pagination={pagination} />;
 }
 
+// SSG -> OBS: Normalmente usa-se SSR para fazer paginação
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
@@ -30,7 +31,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-// SSG
 export const getStaticProps: GetStaticProps = async (ctx) => {
   // TESTAR: http://localhost:3000/post/page/1/TypeScript
   // console.log(ctx); // params: { param: [ '1', 'TypeScript' ] },
@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   console.log(category);
 
-  const postsPerPage = 3;
+  const postsPerPage = 6;
   const startFrom = (page - 1) * postsPerPage;
 
   const nextPage = page + 1;

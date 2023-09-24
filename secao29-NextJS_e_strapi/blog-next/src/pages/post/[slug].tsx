@@ -20,7 +20,7 @@ export default function DynamicPost({ post }: DynamicPostsProps) {
     return <div>Página carregando...</div>;
   }
 
-  if (!post) {
+  if (!post?.attributes?.title) {
     return <Error statusCode={404} />; // pode criar um componente
   }
 
@@ -47,9 +47,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { data } = await getPosts(context.params?.slug);
+  const post = data.length > 0 ? data[0] : {};
 
   return {
-    props: { post: data[0] },
+    props: { post },
     revalidate: 600, // para isso é preciso de um servidor rodando em produção
   };
 };

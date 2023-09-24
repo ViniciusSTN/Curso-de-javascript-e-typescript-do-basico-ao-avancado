@@ -19,9 +19,7 @@ export const Post = ({ post }: PostProps) => {
   return (
     <>
       <Head>
-        <title>
-          {post.attributes.title} - {SITE_NAME}
-        </title>
+        <title>{`${post.attributes.title} - ${SITE_NAME}`}</title>
         <meta
           name="description"
           content={removeHtml(post.attributes.content).slice(0, 150)}
