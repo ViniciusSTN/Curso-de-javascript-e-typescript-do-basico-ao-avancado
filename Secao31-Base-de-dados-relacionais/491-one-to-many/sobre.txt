@@ -1,0 +1,4 @@
+1:N
+
+nesse caso o usuario pode ter 0 (por conta da bolinha aberta), 1 ou muitos perfis
+

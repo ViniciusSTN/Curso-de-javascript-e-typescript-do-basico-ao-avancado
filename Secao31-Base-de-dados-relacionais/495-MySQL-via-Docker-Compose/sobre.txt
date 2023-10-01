@@ -1,0 +1,22 @@
+instalar docker e docker-compose
+
+usar docker hub para escolher uma imagem de BD
+https://hub.docker.com/search?q=
+
+no caso será usado mySQL
+
+
+
+docker compose up 	-> subir um BD
+docker compose up -d	-> subir sem ficar preso no terminal
+
+docker ps	-> para ver os containers
+
+
+para parar (importante parar):
+DOCKER QUE PAREI -> 227
+docker stop <3 primeiras letras do container ID>
+
+para iniciar:
+docker start <3 primeiras letras do container ID>
+

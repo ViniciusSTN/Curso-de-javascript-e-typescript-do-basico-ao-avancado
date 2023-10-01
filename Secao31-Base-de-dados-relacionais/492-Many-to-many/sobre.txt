@@ -1,0 +1,13 @@
+M:N
+
+é preciso ter uma tabela joining table que faça a ligação entre as duas tabelas relacionadas
+
+é preciso ter duas tabelas com relação 1:N ligadas à joining table
+
+as duas FK podem formar uma PK composta
+o par de FK não podem se repetir. Por exemplo:
+O user = 3 pode ter a role = 2 e role = 3
+Ou seja, pode ter o par 3,2 e 3,3. Mas nunca pode repetir esse par no banco de dados, se tiver 3,2 e 3,2 -> inconsistência de dados
+
+nesse caso é users_roles
+

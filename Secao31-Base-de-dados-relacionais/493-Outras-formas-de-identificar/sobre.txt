@@ -1,0 +1,16 @@
+(1, 1) -> o primeiro numero indica a obrigatoriedade, se for 0, não é obrigatorio. O segundo indica a cardinalidade (relação)
+
+exemplos:
+
+(1, 1)__________(1, n)
+Ambos obrigatórios, relação de 1:N
+
+
+(1, 1)__________(0, 1)
+relação de 1:1 em que não é obrigatório ter o segundo
+Ou seja, pode ser 1:0 ou 1:1
+
+
+Outra forma:
+1 ____________ *
+1:N

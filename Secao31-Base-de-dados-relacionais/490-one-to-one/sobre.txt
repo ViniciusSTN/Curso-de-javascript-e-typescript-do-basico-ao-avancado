@@ -1,0 +1,7 @@
+As duas imagens são 1:1
+
+imagem 1: um user precisa ter um profile
+imagem 2: um user pode ou não ter um profile
+
+Obs: quando há relação de obrigatoriedade, ao apagar um usuário, é preciso que apague o profile
+
