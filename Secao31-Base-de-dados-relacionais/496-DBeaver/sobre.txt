@@ -1,0 +1,5 @@
+Ambiente gráfico para ver os dados do BD
+https://dbeaver.io/
+
+Pode usar o MySQL workbench ao invés do DBeaver
+
