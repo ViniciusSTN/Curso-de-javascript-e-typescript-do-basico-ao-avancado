@@ -1,0 +1,7 @@
+-- ordernar
+
+-- asc crescente
+-- desc decrescente
+
+select * from users where id between 100 and 150 order by id asc;
+

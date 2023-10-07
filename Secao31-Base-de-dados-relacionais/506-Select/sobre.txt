@@ -1,0 +1,8 @@
+-- Seleciona colunas
+select * from users;
+select * from users u; -- u agora é apelido de users
+select * from users as u; -- u agora é apelido de users
+
+select id, email from users u;
+
+select u.id, u.email from users as u; -- seleção especifica

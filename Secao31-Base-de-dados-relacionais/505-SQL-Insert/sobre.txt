@@ -1,0 +1,17 @@
+use base_de_dados;  --seleciona a base de dados
+
+show tables;  -- mostra as tabelas do BD selecionado
+
+describe users;  --mostra informação da tabela users
+
+
+-- inserir um registro
+insert into users 
+(first_name, last_name, email, password_hash) values 
+("Luiz", "Miranda", "luiz@gmail.com, "adgdf");
+
+-- inserir mais de um registro
+insert into users 
+(first_name, last_name, email, password_hash) values 
+("Luiz", "Miranda", "luiz@gmail.com, "adgdf"),
+("Ana", "Silva", "ana@gmail.com, "adgdfsdf");

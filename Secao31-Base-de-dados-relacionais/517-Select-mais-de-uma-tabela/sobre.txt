@@ -1,0 +1,14 @@
+SELECT u.id as uid, p.id as pid
+FROM users as u, profiles as p
+WHERE u.id = p.user_id; -- 'filtrar' relacionando as duas tabelas
+
+-- precisa especificar a relação entre as tabelas
+-- nesse caso user.id está relacionado com profiles.user_id 
+
+
+-- é possível selecionar mais dados das duas tabelas, formando uma única
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u, profiles as p
+WHERE u.id = p.user_id;
+

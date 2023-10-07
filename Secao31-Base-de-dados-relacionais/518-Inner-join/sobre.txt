@@ -1,0 +1,47 @@
+Inner join -> quando os valores de duas tabelas existem em um relacionamento
+
+left join -> todos os registros de user (mesmo que não tenha relacionamento com a outra tabela, pois um usuário pode não ter um perfil) e relacionamentos com profiles
+
+right join -> TODOS os registros de profiles e relacionamentos com users
+
+left join e right join: os valores que não se relacionam vem nulos
+
+
+
+-- aula anterior:
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u, profiles as p
+WHERE u.id = p.user_id;
+
+
+-- mesmo código usando inner join (o resultado é o mesmo)
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u
+INNER JOIN profiles as p
+on u.id = p.user_id;
+
+-- ambos retornam a intersecção entre as duas tabelas
+
+
+-- OBS: a tabela que estiver antes do INNER JOIN é a tabela da esquerda e a que estiver depois, a tabela da direita
+
+
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u
+INNER JOIN profiles as p
+ON u.id = p.user_id
+WHERE u.first_name LIKE '%a'; -- filtrar
+
+
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u
+INNER JOIN profiles as p
+ON u.id = p.user_id
+WHERE u.first_name LIKE '%a' -- filtrar
+ORDER BY u.first_name DESC  -- ordernar
+LIMIT 5;
+

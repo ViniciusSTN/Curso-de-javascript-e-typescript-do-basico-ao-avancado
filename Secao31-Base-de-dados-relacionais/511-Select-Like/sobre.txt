@@ -1,0 +1,28 @@
+-- parecido com regex
+-- não é muito usado mais
+
+
+-- % qualquer coisa
+-- _ um caractere qualquer
+
+
+select * from users where first_name like '%a';
+-- seleciona todos que terminarem com 'a'
+-- % indica que pode vir qualquer coisa antes
+
+select * from users where first_name like 'h%';
+-- seleciona todos que comecem com 'h'
+
+select * from users where first_name like '%el%';
+-- seleciona todos que tem 'el'
+
+select * from users where first_name like '%a%b%';
+-- qualquer coisa, 'a', qualquer coisa, 'b', qualquer coisa
+
+
+
+select * from users where first_name like '____';
+-- seleciona tudo que tem 4 caracteres
+
+select * from users where first_name like '__a__';
+-- 2 caracteres, 'a', 2 caracteres

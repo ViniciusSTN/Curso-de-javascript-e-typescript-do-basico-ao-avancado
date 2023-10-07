@@ -1,0 +1,2 @@
+delete from users where id = 114
+delete from users where id between 110 and 115;

@@ -1,0 +1,13 @@
+-- insert select
+-- insere valores em uma tabela usando outra
+
+-- seleciona coisas de uma tabela e insere em outra
+-- para cada item na tabela users, adiciona um em profile
+isert into profile (bio, description, user_id)
+select 
+concat('Bio de', firt_name), 
+concat('Description de', first_name), 
+id 
+from users;
+
+

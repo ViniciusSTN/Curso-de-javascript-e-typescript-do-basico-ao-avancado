@@ -1,0 +1,16 @@
+-- Nunca fazer update e delete sem usar a clausula where
+
+-- Where para filtrar registros
+
+select * from users where id=100;
+
+-- = < <= > >= (<> ou !=)
+select * from users where id>100; 
+
+select * from users where email='vinicius@gmail.com';
+
+-- funciona com datas
+select * from users where created_at < '2020-12-15 23:33:41'; 
+
+-- and / or
+select * from users where email='vinicius@gmail.com' and id < 100; 

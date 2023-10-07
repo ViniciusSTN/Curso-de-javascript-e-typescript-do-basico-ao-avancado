@@ -1,0 +1,7 @@
+-- between seleciona um range
+
+select * from users where 
+created_at between '2020-06-12 00:00:00'
+and '2020-09-04 23:59:59';
+
+select * from users where id between '1'and '10';

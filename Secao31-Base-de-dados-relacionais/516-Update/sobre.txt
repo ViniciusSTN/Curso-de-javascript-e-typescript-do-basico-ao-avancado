@@ -1,0 +1,9 @@
+update users set 
+first_name = 'Julia',
+last_name = 'Silva'
+where id = 119;
+
+update users set 
+first_name = 'Julia',
+last_name = 'Silva'
+where id between 119 and 121;

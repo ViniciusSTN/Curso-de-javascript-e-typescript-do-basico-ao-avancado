@@ -1,0 +1,26 @@
+-- limit limita a qtd de valores
+-- offset faz paginação
+
+select * from users 
+where id between 100 and 150 
+order by id asc
+limit 5;
+-- limita a 5 registros
+
+
+select * from users 
+where id between 100 and 150 
+order by id asc
+limit 2 offset 2;
+-- faz uma espécie de paginação, separando em grupos de 2 em 2
+-- nesse caso está retornando apenas o registro do segundo grupo
+-- ou seja, id 102 e 103
+
+
+-- limit 2 offset 0; -> id 100 e 101
+-- limit 2 offset 2; -> id 102 e 103
+-- limit 2 offset 4; -> id 104 e 105
+
+-- também é possivel encontrar da seguinte forma
+-- limit 4,2; -> id 104 e 105 
+-- nesse caso o primeiro número é offset e o segundo o limit

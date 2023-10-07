@@ -1,0 +1,6 @@
+-- funciona como se fosse um or
+
+select * from users where id 110 or 115 or 120;
+
+select * from users where id in (110,115,120);
+-- retorna todos as linhas que contem os id especificados caso eles existirem
