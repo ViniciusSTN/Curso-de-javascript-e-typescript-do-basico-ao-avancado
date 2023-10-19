@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* grid-template-rows: 1fr; */
+    gap: 5px 30px;
+}
+
+.item {
+    background-color: blue;
+    border: 1px solid black;
+}
+
+.item:nth-child(7) {
+    background-color: aqua;
+    color: red;
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+/* Resolver o problema das colunas abaixo de 304px */
+@media (max-width: 329px) {
+    .item:nth-child(7) {
+        grid-column: span 1;
+    }
+}
+
+/* ---------- ELEMENTO PAI ------------ */
+/* 
+gap: 30px; -> espaçamento entre itens
+
+
+grid-template-columns: 
+25% 25% 25% 25%; -> quatro colunas
+200px 1fr 2fr; -> a primeira ocupa 200px, a segunda coluna ocupam 1 fragmento e a terceira 2 fragmentos
+repeat(5, 1fr); -> 5 colunas de 1fr cada
+repeat(5, 1fr, 2fr); -> 10 colunas intercalando 1fr e 2fr
+
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+OBS: é possivel nomear as colunas e linhas usando []
+[um] 25% [dois] 25% [tres] 25% [quatro];
+-> sempre fica sobrando uma linha e uma coluna
+
+
+grid-template-rows: 1fr;
+*/
+
+
+/* ---------- ELEMENTOS FILHOS ------------ */
+/* 
+grid-column-start: 3;
+grid-column-end: 5; 
+atalho -> grid-area:
+
+
+*/

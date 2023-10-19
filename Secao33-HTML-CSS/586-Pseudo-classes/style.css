@@ -1,0 +1,69 @@
+/* :hover */
+
+/* link não visitado */
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: brown;
+}
+
+a:active {
+    color: green;
+}
+
+input:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+input:disabled {
+    background-color: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+input:enabled {
+    background-color: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input:checked {
+    width: 50px;
+    height: 50px;
+}
+
+.list1 li:first-child, .list1 li:last-child {
+    background-color: red;
+}
+
+input:required {
+    background: blue;
+}
+
+/* todos os paragrafos menos o que tem a classe text3 */
+p:not(.text3) {
+    color: pink;
+}
+
+/* todos os inputs que não tiverem disabled */
+input:not(:disabled) {
+    border: 3px solid red;
+}
+
+
+/* OBS: nth-child não é só para listas, pode ser usado com qualquer elemento que tenha irmão */
+.list2 li:nth-child(2) {
+    background-color: cadetblue;
+}
+
+/* even -> par; odd -> impar */
+.list3 li:nth-child(odd) {
+    background-color: burlywood;
+}
+.list3 li:nth-child(even) {
+    background-color: aquamarine;
+}
+
+/* de 3 em 3 */
+/* 3n+10 -> respeita a equação */
+.list4 li:nth-child(3n) {
+    background-color: bisque;
+}

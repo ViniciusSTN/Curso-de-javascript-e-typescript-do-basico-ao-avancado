@@ -1,0 +1,14 @@
+-- JOIN é a mesma coisa que INNER JOIN
+
+SELECT u.first_name, p.bio from users as u
+JOIN profiles as p
+ON p.user_id = u.id
+WHERE u.first_name = 'Katelyn'
+
+
+UPDATE users as u
+JOIN profiles as p
+ON p.user_id = u.id
+set p.bio = concat(p.bio, ' atualizado')
+WHERE u.first_name = 'Katelyn';
+

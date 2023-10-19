@@ -1,0 +1,24 @@
+/* Absolutas */
+/* px -> pixel */
+
+/* Relativas */
+html {
+    font-size: 62.5%; 
+    /* O padrão do navegador é 16px, para trabalhar com rem de forma parecida com pixel, usar 62.5% */
+    /* Agora 1rem = 10px */
+}
+
+.pai {
+    font-size: 30px;
+}
+
+.filho {
+    font-size: 0.5em; /* 15px -> baseando no .pai*/
+    font-size: 1rem; /* 10px -> baseando no html (elemtno root)*/
+    font-size: 2vmax; /* ao aleterar tamanho da tela, altera o tamanho da fonte */
+}
+
+/* vmin e vmax -> menor e maior tamanho do viewport respectivamente*/
+
+/* outros: */
+/* vh; vw */

@@ -1,0 +1,20 @@
+INSERT INTO users_roles (user_id, role_id)
+VALUES
+(518, 4);
+
+-- selecionando chave primária composta por duas chaves estrangeiras
+SELECT user_id, role_id FROM user_roles WHERE
+user_id = 518 and role_id = 4;
+
+
+-- Subquery -> dentro de parenteses
+-- Selecionando user.id e uma roles.id aleatória para cada user.id
+SELECT id, (SELECT id FROM roles ORDER BY rand() LIMIT 1) as qualquer FROM users;
+
+
+-- Insert select -> insere o retorno de select
+-- Insere em users_roles nos campos user_id e role_id
+INSERT INTO users_roles (user_id, role_id)
+SELECT id, (SELECT id FROM roles ORDER BY rand() LIMIT 1) as qualquer FROM users;
+
+

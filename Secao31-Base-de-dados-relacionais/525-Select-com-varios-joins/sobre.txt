@@ -1,0 +1,18 @@
+-- select com varios joins
+SELECT u.id as uid, u.first_name, p.bio, r.name as role_name
+FROM users as u
+LEFT JOIN profiles as p ON u.id = p.user_id
+INNER JOIN users_roles as ur ON u.id = ur.user_id
+INNER JOIN roles as r ON ur.role_id = r.id
+ORDER BY uid asc;
+
+
+-- usar sempre nessa ordem, os ultimos são: WHERE, ORDER BY e LIMIT (OFFSET TAMBÉM)
+SELECT u.id as uid, u.first_name, p.bio, r.name as role_name
+FROM users as u
+LEFT JOIN profiles as p ON u.id = p.user_id
+INNER JOIN users_roles as ur ON u.id = ur.user_id
+INNER JOIN roles as r ON ur.role_id = r.id
+WHERE u.id = 518
+ORDER BY uid asc
+LIMIT 3;

@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    border: 1px solid red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* display: inline-flex; */
+    /* flex-flow: row wrap */
+    /* gap: 10px; */
+    /* align-content: center; */
+    /* flex-direction: row; */  /* padrão */
+}
+
+.flex-item {
+    height: 100px;
+    background: blue;
+    border: 1px solid black;
+
+    /* Cabe 3 itens em uma linha caso não tiver a propriedade flex */
+    /* width: 33.33%; */
+
+    /* flex-grow: 1;
+    flex-basis: 400px;
+    flex-shrink: 1; */
+    flex: 1 1 400px;
+
+    /* OBS: Usar porcentagem no flex-basis */
+}
+
+.flex-item:nth-child(2) {
+    background-color: aqua;
+    flex: 2 1 400px; 
+    /* O flex grow foi definido para 2, ou seja, o espaço em branco que for dividido entre os elementos virá o dobro para o item 2 */
+}
+
+.flex-item:nth-child(3) {
+    background-color: yellow;
+    /* align-self: flex-end; */
+    /* Alinha de forma diferente dos demais */
+}
+
+/* 
+DOCUMENTAÇÃO OFICIAL
+https://developer.mozilla.org/pt-BR/docs/Learn/CSS/CSS_layout/Flexbox#um_aparte_no_modelo_flex
+
+
+GUIA DETALHADO
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+*/
+
+
+/* ------------------------ ELEMENTO PAI ------------------------ */
+/* OBS: justify-content e align-items depende se a flex-direction é row ou column, irão inverter o comportamento entre eles (um passa a ser o outro) */
+
+/* 
+flex-flow:
+-> atalho
+
+row wrap
+column wrap
+row nowrap
+column nowrap
+
+
+ 
+display:
+
+flex -> se comporta como block
+inline-flex -> inline-block
+
+
+ 
+justify-content:
+
+space-evenly
+space-around
+space-between
+
+
+
+flex-direction:
+
+row (padrão)
+column
+row-reverse
+column-reverse
+
+
+
+align-items:
+-> alinha itens
+
+stretch (padrão)
+center
+flex-start
+flex-end
+baseline (alinha com base na linha de baixo de um elemento)
+
+
+
+align-content:
+-> parecido com align-items, mas alinha o conteúdo
+
+center
+stretch
+...
+
+
+ 
+gap: 30px;
+-> espaçamento entre cada um dos elementos, algo similar ao margin 
+
+
+
+flex-wrap:
+
+wrap -> quebra linha quando não couber, ao invés de fazer um overflow (estourar a div)
+
+nowrap (padrão)
+*/
+
+
+/* ---------------------- ELEMENTOS FILHOS ---------------------- */
+
+/*
+flex-grow: 1;  
+-> Ocupa 100% do espaço disponível
+
+
+flex-basis: 400px;  
+-> Tamanho base antes de começar a dividir os espaços entre os elementos -> similar ao min-width mas o tamanho pode ser menor que 400px
+
+
+flex-shrink: 1; 
+-> Se for 0, o elemento ocupará o tamanho de 400px, irá fazer overflow, se for 1 não fará overflow
+
+
+flex: 1 1 400px;  
+-> Atalho para flex-grow/flex-shrink/flex-basis respectivamente
+
+
+align-self:
+-> Alinha um elemento de forma diferente dos demais
+-> Selecionar o elemento com :nth-child()
+
+flex-end
+center
+stretch
+*/

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ul {
+    margin-top: 30px;
+    height: 200px;
+    border: 1px solid red;
+    width: 300px;
+    font-size: 2rem;
+    overflow-y: auto;
+}
+
+.sticky {
+    background-color: aquamarine;
+    position: sticky;
+    top: 0;
+}
+
+/* sticky precisa ter uma barra de rolagem e infomar a posição, nesse caso top 0 */

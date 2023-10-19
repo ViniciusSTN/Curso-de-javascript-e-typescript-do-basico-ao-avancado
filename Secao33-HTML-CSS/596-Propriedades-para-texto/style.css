@@ -1,0 +1,10 @@
+.filho {
+    /* direction: rtl; */
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    line-height: 40px;
+    /* text-indent: 40px; */
+    text-shadow: 2px 2px 8px gray;
+    text-transform: capitalize; /* uppercase; lowercase */
+}
+
