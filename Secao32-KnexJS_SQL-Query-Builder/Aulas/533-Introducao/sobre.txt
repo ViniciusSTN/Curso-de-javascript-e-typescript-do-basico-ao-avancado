@@ -1,0 +1,10 @@
+ORM -> Sequelize / TypeORM / Bookshelf.js
+ORMs fazem consulta e mapeam dados
+
+Query builders geram um API para usar objetos para fazer buscas
+Em resumo, query builders geram SQL
+Ex: KnexJS
+
+KnessJS
+-> Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift 
+

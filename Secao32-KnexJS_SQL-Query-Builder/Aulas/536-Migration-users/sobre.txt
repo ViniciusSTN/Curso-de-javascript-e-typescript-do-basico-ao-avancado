@@ -1,0 +1,8 @@
+// criar arquivo de migrations
+npx knex migrate:make 'create_users'
+
+// executar migrate
+npx knex migrate:latest
+
+// desfazer -> down
+npx knex migrate:rollback

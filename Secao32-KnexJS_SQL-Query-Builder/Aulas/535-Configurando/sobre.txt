@@ -1,0 +1,4 @@
+npm i knex
+npm i mysql2
+
+npx knex init

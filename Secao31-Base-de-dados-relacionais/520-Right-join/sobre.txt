@@ -1,0 +1,10 @@
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u
+RIGHT JOIN profiles as p
+ON u.id = p.user_id;
+
+right join é o inverso de left join, irá mostrar todos os dados de profiles mesmo que não tenha na tabela users
+
+OBS: tem casos que não irá ter right join, por uma questão de dependência, por exemplo, no nosso caso existe perfis não atrelados a usuário, mas em um cenário real, cada perfil obrigatóriamente pertence a um usuário. Nesse caso seria melhor usar inner join
+

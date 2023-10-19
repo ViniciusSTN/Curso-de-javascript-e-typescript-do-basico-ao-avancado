@@ -1,0 +1,10 @@
+SELECT u.id as uid, p.id as pid,
+p.bio, u.first_name
+FROM users as u
+LEFT JOIN profiles as p
+ON u.id = p.user_id;
+
+nesse caso users é o left join, ou seja, a consulta vai considerar todos os registros da tabela users, mesmo que algum não tenha relação com profiles
+
+resumindo: seleciona todos os registros em a e exibe a relação ou null quando não tiver
+
